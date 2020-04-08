@@ -1,0 +1,74 @@
+<tool id="callfilter" name="Filter" description="segmented and called data" force_history_refresh="True" version="1.1.0">
+  <requirement type="package" version="1.1.2">mpagenomics</requirement>
+  <command>
+  	<![CDATA[ 
+        Rscript 
+        ${__tool_directory__}/filter.R 
+  		--input '$input' 
+  		--length '$length' 
+  		--probes '$probes' 
+  		--new_file_path '$__new_file_path__' 
+  		--nbcall '$nbcall' 
+  		--output '$output' 
+  		--outputlog '$outputlog' 
+  		--log '$log'
+  	]]>
+  </command>
+  <inputs>
+    <param name="input" type="data" format="scr" label="Segmented and called data file" help="Input file with labelled segments"/>
+    <param name="length" type="integer" min="1" value="1" label="Minimum length for a segment" help="minimal length (in bp) to keep in a segment"/>
+	<param name="probes" type="integer" min="1" value="1" label="Minimum probes for a segment" help="minimal number of probes to keep in a segment"/>
+    <param name="nbcall" type="select" multiple="true" label="Label(s) to keep">
+      <option value="double loss">double loss</option>
+      <option value="loss">loss</option>
+      <option value="normal">normal</option>
+      <option value="gain">gain</option>
+      <option value="amplification">amplification</option>
+    </param>    
+    <param name="outputlog" type="select" label="Output log">
+        <option value="TRUE">Yes</option>
+        <option value="FALSE">No</option>
+    </param>
+  </inputs>
+  
+  <outputs>
+    <data format="txt" name="output" label="filter of ${on_string}" />
+    
+	<data format="log" name="log" label="log of segmentation of ${input.name}">
+    	<filter>outputlog == "TRUE"</filter>
+    </data>  
+  </outputs>
+ 
+  <stdio>
+    <exit_code range="1:"   level="fatal"   description="See logs for more details" />
+   </stdio>
+   <help>
+   	
+**What it does**
+   	    	
+This tool filters results obtained by the segmentation and calling tool.
+
+-----
+
+Input/Output file:
+  	
+*A tabular text file containing 7 columns:*
+	
+	- sampleNames: Name of the file.
+	- chrom: Chromosome of the segment.
+	- chromStart: Starting position (in bp) of the segment. This position is not included in the segment.
+	- chromEnd: Ending position (in bp) of the segment. This position is included in the segment.
+	- probes: Number of probes in the segment.
+	- means: Mean of the segment.
+	- calls: Calling of the segment (”double loss”, ”loss”, ”normal”, ”gain” or ”amplification”).
+
+-----
+   	
+**Citation**
+	
+If you use this tool please cite : 
+
+`Q. Grimonprez, A. Celisse, M. Cheok, M. Figeac, and G. Marot. MPAgenomics : An R package for multi-patients analysis of genomic markers, 2014. Preprint &lt;http://fr.arxiv.org/abs/1401.5035&gt;`_
+  
+ </help>
+   	</tool>
