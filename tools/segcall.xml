@@ -1,21 +1,36 @@
 <tool id="segcall" name="Segmentation and calling" force_history_refresh="True">
   <description>of the normalized data</description>
-  <command interpreter="python">
-    segcall.py '$chrom' '$input' '$output' '$__new_file_path__' '$nbcall' 
+  <requirement type="package" version="1.1.2">mpagenomics</requirement>
+  <command>
+    <![CDATA[ 
+        Rscript 
+        ${__tool_directory__}/segcall.R 
+  		--chrom '$chrom' 
+  		--input '$input' 
+  		--output '$output' 
+  		--new_file_path '$__new_file_path__' 
+  		--nbcall '$nbcall' 
   	#if $settings.settingsType == "file":
-  	'$settings.inputs'
+  		--settingsType '$settings.inputs'
   	#end if
   	#if $settings.settingsType == "dataset":
-  	'$settings.settingsType'
+  		--settingsType '$settings.settingsType'
   	#end if
-  	'$outputgraph' '$snp' '$zipfigures'
+  		--outputgraph '$outputgraph' 
+  		--snp '$snp' 
+  		--zipfigures '$zipfigures'
   	#if $settingsTumor.settingsTypeTumor == "standard":
-  	'none'
+  		--settingsTypeTumor 'none'
   	#end if
   	#if $settingsTumor.settingsTypeTumor == "tumor":
-  	'$tumorcsv'
+  		--settingsTypeTumor '$tumorcsv'
   	#end if
-  	'$cellularity' '$outputlog' '$log' '$__user_id__' '$method'
+  		--cellularity '$cellularity' 
+  		--outputlog '$outputlog' 
+  		--log '$log' 
+  		--userid '$__user_id__' 
+  		--method '$method'
+  	]]>
   </command>
   <inputs>
     <!--param name="input" type="data" format="m:cel" label="Cel dataset" refresh="TRUE" help="cel files dataset previously normalized with the Data Normalization tool"/-->

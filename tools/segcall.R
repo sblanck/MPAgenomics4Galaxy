@@ -1,17 +1,57 @@
-args<-commandArgs(TRUE)
+#!/usr/bin/env Rscript
+# setup R error handling to go to stderr
+options( show.error.messages=F, error = function () { cat( geterrmessage(), file=stderr() ); q( "no", 1, F ) } )
 
-chrom=args[1]
-dataset=args[2]
-output=args[3]
-tmp_dir=args[4]
-nbcall=as.numeric(args[5])
-input=args[6]
-outputfigures=type.convert(args[7])
-snp=type.convert(args[8])
-tumorcsv=args[9]
-cellularity=as.numeric(args[10])
-user=args[11]
-method=args[12]
+# we need that to not crash galaxy with an UTF8 error on German LC settings.
+loc <- Sys.setlocale("LC_MESSAGES", "en_US.UTF-8")
+
+library("optparse")
+
+##### Read options
+option_list=list(
+		make_option("--chrom",type="character",default=NULL, dest="chrom"),
+		make_option("--input",type="character",default=NULL, dest="input"),
+		make_option("--output",type="character",default=NULL, dest="output"),
+		make_option("--new_file_path",type="character",default=NULL, dest="new_file_path"),
+		make_option("--nbcall",type="character",default=NULL, dest="nbcall"),
+		make_option("--settingsType",type="character",default=NULL, dest="settingsType"),
+		make_option("--outputgraph",type="character",default=NULL, dest="outputgraph"),
+		make_option("--snp",type="character",default=NULL, dest="snp"),
+		make_option("--zipfigures",type="character",default=NULL, dest="zipfigures"),
+		make_option("--settingsTypeTumor",type="character",default=NULL, dest="settingsTypeTumor"),
+		make_option("--cellularity",type="character",default=NULL, dest="cellularity"),
+		make_option("--outputlog",type="character",default=NULL, dest="outputlog"),
+		make_option("--log",type="character",default=NULL, dest="log"),
+		make_option("--userid",type="character",default=NULL, dest="userid"),
+		make_option("--method",type="character",default=NULL, dest="method")
+);
+
+opt_parser = OptionParser(option_list=option_list);
+opt = parse_args(opt_parser);
+
+if(is.null(opt$input)){
+	print_help(opt_parser)
+	stop("input required.", call.=FALSE)
+}
+
+#loading libraries
+
+chrom=opt$chrom
+datasetFile=opt$input
+output=opt$output
+tmp_dir=opt$new_file_path
+nbcall=as.numeric(opt$nbcall)
+settingsType=opt$settingsType
+outputfigures=type.convert(opt$outputgraph)
+snp=type.convert(opt$snp)
+tumorcsv=opt$settingsTypeTumor
+cellularity=as.numeric(opt$cellularity)
+user=opt$userid
+method=opt$method
+log=opt$log
+outputlog=opt$outputlog
+outputgraph=opt$outputgraph
+zipfigures=opt$zipfigures
 
 library(MPAgenomics)
 workdir=file.path(tmp_dir, "mpagenomics",user)
@@ -25,13 +65,27 @@ if (grepl("all",tolower(chrom)) | chrom=="None") {
 		chrom_vec <- as.numeric(chrom_vecstring)
 	}
 
-input_tmp <- strsplit(input,",")
-input_tmp_vecstring <-unlist(input_tmp)
 
+if (outputlog){
+	sinklog <- file(log, open = "wt")
+	sink(sinklog ,type = "output")
+	sink(sinklog, type = "message")
+} 
+	
+	
+inputDataset=read.table(file=datasetFile,stringsAsFactors=FALSE)
+dataset=inputDataset[1,2]
 
-input_vecstring = sub("^([^.]*).*", "\\1", input_tmp_vecstring) 
+fig_dir = file.path("mpagenomics", user, "figures", dataset, "segmentation","CN")
+abs_fig_dir = file.path(tmp_dir, fig_dir)
 
-if (dataset == input) {
+if (outputgraph) {
+	if (dir.exists(abs_fig_dir)) {
+		system(paste0("rm -r ", abs_fig_dir))
+	}
+}
+
+if (settingsType == 'dataset') {
 	if (tumorcsv== "none")
 	{
   		segcall=cnSegCallingProcess(dataset,chromosome=chrom_vec, nclass=nbcall, savePlot=outputfigures,onlySNP=snp, cellularity=cellularity, method=method)
@@ -39,6 +93,9 @@ if (dataset == input) {
   		segcall=cnSegCallingProcess(dataset,chromosome=chrom_vec, normalTumorArray=tumorcsv, nclass=nbcall, savePlot=outputfigures,onlySNP=snp, cellularity=cellularity, method=method)
   	}
 } else {
+	input_tmp <- strsplit(settingsType,",")
+	input_tmp_vecstring <-unlist(input_tmp)
+	input_vecstring = sub("^([^.]*).*", "\\1", input_tmp_vecstring) 
   	if (tumorcsv== "none") 
   	{
   		segcall=cnSegCallingProcess(dataset,chromosome=chrom_vec, listOfFiles=input_vecstring, nclass=nbcall, savePlot=outputfigures, onlySNP=snp, cellularity=cellularity, method=method)
@@ -47,9 +104,21 @@ if (dataset == input) {
   	}
 }
 
-sink(output)
-print(format(segcall))
-sink()
-#write.table(format(segcall),output,row.names = FALSE, quote=FALSE, sep = "\t")
+
+write.table(format(segcall),output,row.names = FALSE, quote=FALSE, sep = "\t")
+
+
+if (outputgraph) {	
+	setwd(abs_fig_dir)
+	files2zip <- dir(abs_fig_dir)
+	zip(zipfile = "figures.zip", files = files2zip)
+	file.rename("figures.zip",zipfigures)
+}
+
+if (outputlog){
+	sink(type="output")
+	sink(type="message")
+	close(sinklog)
+} 
 #write.fwf(segcall,output,rownames = FALSE, quote=FALSE, sep = "\t")
-quit()
+

@@ -1,19 +1,63 @@
-args<-commandArgs(TRUE)
+#!/usr/bin/env Rscript
+# setup R error handling to go to stderr
+options( show.error.messages=F, error = function () { cat( geterrmessage(), file=stderr() ); q( "no", 1, F ) } )
 
-chrom=args[1]
-dataset=args[2]
-output=args[3]
-tmp_dir=args[4]
-input=args[5]
-tumorcsv=args[6]
-signal=args[7]
-snp=type.convert(args[8])
-user=args[9]
-symmetrize=args[10]
+# we need that to not crash galaxy with an UTF8 error on German LC settings.
+loc <- Sys.setlocale("LC_MESSAGES", "en_US.UTF-8")
+
+library("optparse")
+
+##### Read options
+option_list=list(
+		make_option("--chrom",type="character",default=NULL, dest="chrom"),
+		make_option("--input",type="character",default=NULL, dest="input"),
+		make_option("--output",type="character",default=NULL, dest="output"),
+		make_option("--new_file_path",type="character",default=NULL, dest="new_file_path"),
+		make_option("--settings_type",type="character",default=NULL, dest="settings_type"),
+		make_option("--settings_tumor",type="character",default=NULL, dest="settings_tumor"),
+		make_option("--symmetrize",type="character",default=NULL, dest="symmetrize"),
+		make_option("--settings_signal",type="character",default=NULL, dest="settings_signal"),
+		make_option("--settings_snp",type="character",default=NULL, dest="settings_snp"),
+		make_option("--outputlog",type="character",default=NULL, dest="outputlog"),
+		make_option("--log",type="character",default=NULL, dest="log"),
+		make_option("--userid",type="character",default=NULL, dest="userid")
+);
+
+opt_parser = OptionParser(option_list=option_list);
+opt = parse_args(opt_parser);
+
+if(is.null(opt$input)){
+	print_help(opt_parser)
+	stop("input required.", call.=FALSE)
+}
+
+#loading libraries
+
+chrom=opt$chrom
+input=opt$input
+tmp_dir=opt$new_file_path
+output=opt$output
+settingsType=opt$settings_type
+tumorcsv=opt$settings_tumor
+symmetrize=opt$symmetrize
+signal=opt$settings_signal
+snp=type.convert(opt$settings_snp)
+outputlog=opt$outputlog
+log=opt$log
+user=opt$userid
 
 library(MPAgenomics)
 workdir=file.path(tmp_dir, "mpagenomics",user)
 setwd(workdir)
+
+inputDataset=read.table(file=input,stringsAsFactors=FALSE)
+dataset=inputDataset[1,2]
+
+if (outputlog){
+	sinklog <- file(log, open = "wt")
+	sink(sinklog ,type = "output")
+	sink(sinklog, type = "message")
+} 
 
 
 if (grepl("all",tolower(chrom)) | chrom=="None") {
@@ -25,7 +69,7 @@ if (grepl("all",tolower(chrom)) | chrom=="None") {
 	}
 if (signal == "CN")
 {
-	if (input == "dataset") {
+	if (settingsType == "dataset") {
 		if (tumorcsv== "None")
 		{  		
 			CN=getCopyNumberSignal(dataset,chromosome=chrom_vec, onlySNP=snp)
@@ -34,7 +78,7 @@ if (signal == "CN")
 	  		CN=getCopyNumberSignal(dataset,chromosome=chrom_vec, normalTumorArray=tumorcsv, onlySNP=snp)
 	  	}
 	} else {
-		input_tmp <- strsplit(input,",")
+		input_tmp <- strsplit(settingsType,",")
 		input_tmp_vecstring <-unlist(input_tmp)
 		input_vecstring = sub("^([^.]*).*", "\\1", input_tmp_vecstring) 
 	  	if (tumorcsv== "None") 
@@ -56,10 +100,10 @@ if (signal == "CN")
 	
 } else {
 	if (symmetrize=="TRUE")	{
-		if (input == "dataset") {
+		if (settingsType == "dataset") {
 			input_vecstring = getListOfFiles(dataset)
 		} else {
-			input_tmp <- strsplit(input,",")
+			input_tmp <- strsplit(settingsType,",")
 			input_tmp_vecstring <-unlist(input_tmp)
 			input_vecstring = sub("^([^.]*).*", "\\1", input_tmp_vecstring) 
 		}
@@ -87,7 +131,7 @@ if (signal == "CN")
 		
 		write.table(format(symFracB_global), output, row.names = FALSE, quote = FALSE, sep = "\t")
 	} else {
-		if (input == "dataset") {
+		if (settingsType == "dataset") {
 			if (tumorcsv== "None")
 			{  		
 				fracB=getFracBSignal(dataset,chromosome=chrom_vec)
@@ -96,7 +140,7 @@ if (signal == "CN")
 				fracB=getFracBSignal(dataset,chromosome=chrom_vec, normalTumorArray=tumorcsv)
 			}
 		} else {
-			input_tmp <- strsplit(input,",")
+			input_tmp <- strsplit(settingsType,",")
 			input_tmp_vecstring <-unlist(input_tmp)
 			input_vecstring = sub("^([^.]*).*", "\\1", input_tmp_vecstring) 
 			if (tumorcsv== "None") 
@@ -118,3 +162,9 @@ if (signal == "CN")
 	}
 	
 }
+
+if (outputlog){
+	sink(type="output")
+	sink(type="message")
+	close(sinklog)
+} 

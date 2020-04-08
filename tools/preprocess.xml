@@ -1,17 +1,43 @@
 <tool id="preprocess" name="Data Normalization" force_history_refresh="True" version="0.1.0">
-  
-	<command interpreter="python">
-    preprocess.py '$input.extra_files_path' '$input.ext' '$input.dbkey' '$summary' '$summary.id' '$__new_file_path__' '$input.name' 'TODOsupprimer' '$inputcdffull.name' '$inputufl.name' '$inputugp.name' '$inputacs.name' 'TODOsupprimer' '$inputcdffull' '$inputufl' '$inputugp' '$inputacs' 
+  	<requirements>
+    <!--requirement type="set_environment">R_SCRIPT_PATH</requirement-->
+    <requirement type="package" version="1.1.2">mpagenomics</requirement>
+   </requirements>
+	<!--command interpreter="python"-->
+    <command>
+    	<![CDATA[ 
+        Rscript 
+        ${__tool_directory__}/preprocess.R	
+		--summary '$summary' 
+		--new_file_path '$__new_file_path__'  
+		--inputcdffull_name '$inputcdffull.name' 
+		--inputufl_name '$inputufl.name' 
+		--inputugp_name '$inputugp.name' 
+		--inputacs_name '$inputacs.name'
+		--inputcdffull '$inputcdffull' 
+		--inputufl '$inputufl' 
+		--inputugp '$inputugp' 
+		--inputacs '$inputacs'
+		--dataSetName '$datasetName'
   	#if $settings.settingsType == "tumor":
-  	'$tumorcsv' 
+  	--tumorcsv '$tumorcsv' 
   	#end if
   	#if $settings.settingsType == "standard":
-  	'none'
+  	--tumorcsv 'none'
   	#end if
-  	'$settings.settingsType' '$outputgraph' '$zipfigures' '$outputlog' '$log' '$__user_id__'
+  	 --settingsType '$settings.settingsType' 
+	 --outputgraph '$outputgraph' 
+	 --zipfigures '$zipfigures' 
+	 --outputlog '$outputlog' 
+	 --log '$log' 
+	 --user_id '$__user_id__'
+	 --input "#for $input in $inputs# $input;$input.name, #end for#"
+    	]]>
+     
   </command>
   <inputs>
-  	<param name="input" type="data" format="m:data" label="Cel files dataset" help="Cel files dataset previously uploaded with the Multiple File Datasets tool."/>
+  	<param name="datasetName" type="text" label="Dataset Name"/>
+  	<param name="inputs" type="data" format="cel" multiple="True" label="Cel files dataset" help="Cel files dataset previously uploaded with the Multiple File Datasets tool."/>
     <param name="inputcdffull" type="data" format="cdf" label="cdf file" help=".cdf file name must comply with the following format : &lt; chiptype &gt;,&lt; tag &gt;.cdf (e.g, for a GenomeWideSNP_6 chip: GenomeWideSNP_6,Full.cdf)." />
     <param name="inputufl" type="data" format="ufl" label="ufl file" help=".ufl file name must start with  &lt; chiptype &gt;,&lt; tag &gt; (e.g, for a GenomeWideSNP_6 chip: GenomeWideSNP_6,Full,na31,hg19,HB20110328.ufl)."/>
     <param name="inputugp" type="data" format="ugp" label="ugp file" help=".ugp file name must start with  &lt; chiptype &gt;,&lt; tag &gt; (e.g, for a GenomeWideSNP_6 chip: GenomeWideSNP_6,Full,na31,hg19,HB20110328.ugp)."/>
@@ -45,15 +71,14 @@
   	     variable outputs require a primary dataset. If hidden refresh 
   	     doesn't occur. 
   	-->
-    <data format="dsf" name="summary" label="Dataset summary file of ${input.name} " />
-    <data format="zip" name="zipfigures" label="figures of normalization of ${input.name}">
+    <data format="dsf" name="summary" label="Dataset summary file of ${datasetName}" />
+    <data format="zip" name="zipfigures" label="figures of normalization of ${datasetName}">
     	<filter>outputgraph == "TRUE"</filter>	
     </data>    
-    <data format="log" name="log" label="log of normalization of ${input.name}">
+    <data format="log" name="log" label="log of normalization ${datasetName}">
     	<filter>outputlog == "TRUE"</filter>
     </data>
   </outputs>
-  <code file="preprocess.py"/>
   
   <stdio>
     <exit_code range="1:"   level="fatal"   description="See logs for more details" />

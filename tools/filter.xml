@@ -1,6 +1,18 @@
 <tool id="callfilter" name="Filter" description="segmented and called data" force_history_refresh="True" version="0.1.0">
-  <command interpreter="python">
-    filter.py '$input' '$length' '$probes' '$__new_file_path__' '$nbcall' '$output' '$outputlog' '$log'
+  <requirement type="package" version="1.1.2">mpagenomics</requirement>
+  <command>
+  	<![CDATA[ 
+        Rscript 
+        ${__tool_directory__}/filter.R 
+  		--input '$input' 
+  		--length '$length' 
+  		--probes '$probes' 
+  		--new_file_path '$__new_file_path__' 
+  		--nbcall '$nbcall' 
+  		--output '$output' 
+  		--outputlog '$outputlog' 
+  		--log '$log'
+  	]]>
   </command>
   <inputs>
     <param name="input" type="data" format="scr" label="Segmented and called data file" help="Input file with labelled segments"/>
