@@ -15,7 +15,7 @@
 </ul>
 <h2 id="how-to-install-smagexp--a-namehow-to-install-smagexp--toc">How to install SMAGEXP  <a> </a><a href="#toc">[toc]</a></h2>
 <h3 id="from-the-galaxy-toolshed-a-namefrom-the-galaxy-toolshed--toc">From the galaxy toolshed <a> </a><a href="#toc">[toc]</a></h3>
-<p><a href="https://testtoolshed.g2.bx.psu.edu/view/sblanck/smagexp/e4e6e583b8d9">MPAgenomics wrappers are available on the galaxy test toolshed </a></p>
+<p><a href="https://testtoolshed.g2.bx.psu.edu/view/sblanck/mpagenomics_wrappers/af4f63f27c77">MPAgenomics wrappers are available on the galaxy test toolshed </a></p>
 <p>You also have to install R dependencies</p>
 <ul>
 <li>
