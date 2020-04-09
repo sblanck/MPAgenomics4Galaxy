@@ -8,26 +8,8 @@
 <ul>
 <li><a href="#how-to-install-mpa">How to install MPAgenomics</a>
 <ul>
-<li><a href="#from-the-galaxy-toolshed">From the galaxy toolshed</a></li>
 <li><a href="#using-docker">Using docker</a></li>
-</ul>
-</li>
-</ul>
-<h2 id="how-to-install-smagexp--a-namehow-to-install-smagexp--toc">How to install SMAGEXP  <a> </a><a href="#toc">[toc]</a></h2>
-<h3 id="from-the-galaxy-toolshed-a-namefrom-the-galaxy-toolshed--toc">From the galaxy toolshed <a> </a><a href="#toc">[toc]</a></h3>
-<p><a href="https://testtoolshed.g2.bx.psu.edu/view/sblanck/mpagenomics_wrappers/af4f63f27c77">MPAgenomics wrappers are available on the galaxy test toolshed </a></p>
-<p>You also have to install R dependencies</p>
-<ul>
-<li>
-<p>From bioconductor :</p>
-<ul>
-<li>TODO</li>
-</ul>
-</li>
-<li>
-<p>From CRAN :</p>
-<ul>
-<li>TODO</li>
+<li><a href="#from-the-galaxy-toolshed">From the galaxy toolshed</a></li>
 </ul>
 </li>
 </ul>
@@ -53,4 +35,22 @@ docker run -d -p 8080:80 -p 8021:21 -p 8022:22 sblanck/galaxy-mpagenomics
     sblanck/galaxy-mpagenomics
 </code></pre>
 <p>For more information about the parameters and docker usage, please refer to <a href="https://github.com/bgruening/docker-galaxy-stable/blob/master/README.md#Usage">https://github.com/bgruening/docker-galaxy-stable/blob/master/README.md#Usage</a></p>
+<h2 id="how-to-install-smagexp--a-namehow-to-install-mpa--toc">How to install SMAGEXP  <a> </a><a href="#toc">[toc]</a></h2>
+<h3 id="from-the-galaxy-toolshed-a-namefrom-the-galaxy-toolshed--toc">From the galaxy toolshed <a> </a><a href="#toc">[toc]</a></h3>
+<p><a href="https://testtoolshed.g2.bx.psu.edu/view/sblanck/mpagenomics_wrappers/af4f63f27c77">MPAgenomics wrappers are available on the galaxy test toolshed </a></p>
+<p>You also have to install R dependencies</p>
+<ul>
+<li>
+<p>From bioconductor :</p>
+<ul>
+<li>TODO</li>
+</ul>
+</li>
+<li>
+<p>From CRAN :</p>
+<ul>
+<li>TODO</li>
+</ul>
+</li>
+</ul>
 
