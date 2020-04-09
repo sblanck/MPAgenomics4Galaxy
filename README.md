@@ -13,6 +13,7 @@
 </ul>
 </li>
 </ul>
+<h2 id="how-to-install-mpagenomics--a-namehow-to-install-mpa--toc">How to install MPAgenomics  <a> </a><a href="#toc">[toc]</a></h2>
 <h3 id="using-docker--a-nameusing-docker--toc">Using Docker  <a> </a><a href="#toc">[toc]</a></h3>
 <p>A dockerized version of Galaxy containing MPAgenomics, based on <a href="https://github.com/bgruening/docker-galaxy-stable">bgruening galaxy-stable</a> is also available.</p>
 <p>At first you need to install Docker. Please follow the <a href="https://docs.docker.com/installation/">very good instructions</a> from the Docker project.</p>
@@ -35,7 +36,6 @@ docker run -d -p 8080:80 -p 8021:21 -p 8022:22 sblanck/galaxy-mpagenomics
     sblanck/galaxy-mpagenomics
 </code></pre>
 <p>For more information about the parameters and docker usage, please refer to <a href="https://github.com/bgruening/docker-galaxy-stable/blob/master/README.md#Usage">https://github.com/bgruening/docker-galaxy-stable/blob/master/README.md#Usage</a></p>
-<h2 id="how-to-install-smagexp--a-namehow-to-install-mpa--toc">How to install SMAGEXP  <a> </a><a href="#toc">[toc]</a></h2>
 <h3 id="from-the-galaxy-toolshed-a-namefrom-the-galaxy-toolshed--toc">From the galaxy toolshed <a> </a><a href="#toc">[toc]</a></h3>
 <p><a href="https://testtoolshed.g2.bx.psu.edu/view/sblanck/mpagenomics_wrappers/af4f63f27c77">MPAgenomics wrappers are available on the galaxy test toolshed </a></p>
 <p>You also have to install R dependencies</p>
