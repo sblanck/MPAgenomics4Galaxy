@@ -53,7 +53,7 @@ docker run -d -p 8080:80 -p 8021:21 -p 8022:22 sblanck/galaxy-mpagenomics
 Then run the <a href="https://github.com/sblanck/MPAgenomics4Galaxy/blob/master/install.R">install.R</a> script available on this github :</p>
 <pre><code>Rscript install.R
 </code></pre>
-<h2 id="how-to-use-mpagenomics--a-namehow-to-use-mpa--toc">How to use MPAgenomics  <a> </a><a href="#toc">[toc]</a></h2>
+<h2 id="how-to-use-mpagenomics--a-namehow-to-use-mpa--toc">How to use MPAgenomics  <a> </a><a href="#toc">toc</a></h2>
 <h3 id="get-data--a-namehow-to-use-mpa--toc">Get data  <a> </a><a href="#toc">[toc]</a></h3>
 <h3 id="normalization--a-namenormalization--toc">Normalization  <a> </a><a href="#toc">[toc]</a></h3>
 <h3 id="segmentation-and-calling-of-normalized-data--a-nameseg-call--toc">Segmentation and Calling of normalized data  <a> </a><a href="#toc">[toc]</a></h3>
