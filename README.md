@@ -6,13 +6,13 @@
 <h1 id="mpagenomics4galaxy">MPAgenomics4Galaxy</h1>
 <p>MPAgenomics, standing for multi-patients analysis (MPA) of genomic markers, is an R-package devoted to: (i) efficient segmentation, and (ii) genomic marker selection from multi-patient copy number and SNP data profiles. It provides wrappers from commonly used packages to facilitate their repeated (sometimes difficult) use, offering an easy-to-use pipeline for beginners in R. The segmentation of successive multiple profiles (finding losses and gains) is based on a new automatic choice of influential parameters since default ones were misleading in the original packages. Considering multiple profiles in the same time, MPAgenomics wraps efficient penalized regression methods to select relevant markers associated with a given response.</p>
 <ul>
-<li><a href="#how-to-install-mpa">How to install MPAgenomics</a>
+<li><a href="#how-to-install-mpa">How to install MPAgenomics4Galaxy</a>
 <ul>
 <li><a href="#using-docker">Using docker</a></li>
 <li><a href="#from-the-galaxy-toolshed">From the galaxy toolshed</a></li>
 </ul>
 </li>
-<li><a href="#how-to-use-mpa">How to use MPAgenomics</a>
+<li><a href="#how-to-use-mpa">How to use MPAgenomics4Galaxy</a>
 <ul>
 <li><a href="#get-data">Get data</a></li>
 <li><a href="#normalization">Normalization</a></li>
@@ -24,7 +24,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="how-to-install-mpagenomics--a-namehow-to-install-mpa--toc">How to install MPAgenomics  <a> </a><a href="#toc">[toc]</a></h2>
+<h2 id="how-to-install-mpagenomics4galaxy--a-namehow-to-install-mpa--toc">How to install MPAgenomics4Galaxy  <a> </a><a href="#toc">[toc]</a></h2>
 <h3 id="using-docker--a-nameusing-docker--toc">Using Docker  <a> </a><a href="#toc">[toc]</a></h3>
 <p>A dockerized version of Galaxy containing MPAgenomics, based on <a href="https://github.com/bgruening/docker-galaxy-stable">bgruening galaxy-stable</a> is also available.</p>
 <p>At first you need to install Docker. Please follow the <a href="https://docs.docker.com/installation/">very good instructions</a> from the Docker project.</p>
@@ -53,7 +53,7 @@ docker run -d -p 8080:80 -p 8021:21 -p 8022:22 sblanck/galaxy-mpagenomics
 Then run the <a href="https://github.com/sblanck/MPAgenomics4Galaxy/blob/master/install.R">install.R</a> script available on this github :</p>
 <pre><code>Rscript install.R
 </code></pre>
-<h2 id="how-to-use-mpagenomics--a-namehow-to-use-mpa--toc">How to use MPAgenomics  <a> </a><a href="#toc">toc</a></h2>
+<h2 id="how-to-use-mpagenomics4galaxy--a-namehow-to-use-mpa--toc">How to use MPAgenomics4Galaxy  <a> </a><a href="#toc">[toc]</a></h2>
 <h3 id="get-data--a-namehow-to-use-mpa--toc">Get data  <a> </a><a href="#toc">[toc]</a></h3>
 <h3 id="normalization--a-namenormalization--toc">Normalization  <a> </a><a href="#toc">[toc]</a></h3>
 <h3 id="segmentation-and-calling-of-normalized-data--a-nameseg-call--toc">Segmentation and Calling of normalized data  <a> </a><a href="#toc">[toc]</a></h3>
