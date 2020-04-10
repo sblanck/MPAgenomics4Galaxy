@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<datatypes>
+    <registration>
+        <datatype extension="cdf" type="galaxy.datatypes.binary:Binary" subclass="True" display_in_upload="true" />
+    	<datatype extension="ufl" type="galaxy.datatypes.binary:Binary" subclass="true" display_in_upload="true" />
+    	<datatype extension="ugp" type="galaxy.datatypes.binary:Binary" subclass="true" display_in_upload="true" />
+    	<datatype extension="acs" type="galaxy.datatypes.binary:Binary" subclass="true" display_in_upload="true" />
+    	<datatype extension="dsf" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="false"/> 
+    	<datatype extension="log" type="galaxy.datatypes.data:Text" subclass="true" display_in_upload="false"/>
+	<!--segmentation and calling result file-->
+	<datatype extension="scr" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="false"/>
+	<!--segmentation allele b fraction result file-->
+	<datatype extension="sar" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="false"/>
+	<!-- signal extraction file-->
+	<datatype extension="sef" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true"/>
+	<!--End MPAgenomics extensions-->     
+     </registration>
+</datatypes>

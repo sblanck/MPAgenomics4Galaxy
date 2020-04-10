@@ -32,7 +32,7 @@
   </inputs>
   
   <outputs>
-    <data format="txt" name="output" label="filter of ${on_string}" />
+    <data format="tabular" name="output" label="filter of ${on_string}" />
     
 	<data format="log" name="log" label="log of segmentation of ${input.name}">
     	<filter>outputlog == "TRUE"</filter>

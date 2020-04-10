@@ -1,0 +1,4 @@
+categories: [Transcriptomics]
+description: Datatypes for MPAgenomics tools
+name: mpagenomics_datatypes
+owner: sblanck
