@@ -12,6 +12,17 @@
 <li><a href="#from-the-galaxy-toolshed">From the galaxy toolshed</a></li>
 </ul>
 </li>
+<li><a href="#how-to-use-mpa">How to use MPAgenomics</a>
+<ul>
+<li><a href="#get-data">Get data</a></li>
+<li><a href="#normalization">Normalization</a></li>
+<li><a href="seg-call">Segmentation and Calling of normalized data</a></li>
+<li><a href="#filtering">Filtering</a></li>
+<li><a href="#extract">Extract Copy number signal</a></li>
+<li><a href="#seg-call-extracted">Segmentation and Calling of an extracted signal</a></li>
+<li><a href="#markers-selection">Markers selection</a></li>
+</ul>
+</li>
 </ul>
 <h2 id="how-to-install-mpagenomics--a-namehow-to-install-mpa--toc">How to install MPAgenomics  <a> </a><a href="#toc">[toc]</a></h2>
 <h3 id="using-docker--a-nameusing-docker--toc">Using Docker  <a> </a><a href="#toc">[toc]</a></h3>
@@ -42,17 +53,13 @@ docker run -d -p 8080:80 -p 8021:21 -p 8022:22 sblanck/galaxy-mpagenomics
 Then run the <a href="https://github.com/sblanck/MPAgenomics4Galaxy/blob/master/install.R">install.R</a> script available on this github :</p>
 <pre><code>Rscript install.R
 </code></pre>
-<ul>
-<li><a href="#how-to-use-mpa">How to use MPAgenomics</a>
-<ul>
-<li><a href="#get-data">Get data</a></li>
-<li><a href="#normalization">Normalization</a></li>
-<li><a href="seg-call">Segmentation and Calling of normalized data</a></li>
-<li><a href="#filtering">Filtering</a></li>
-<li><a href="#extract">Extract Copy number signal</a></li>
-<li><a href="#seg-call-extracted">Segmentation and Callinf of an extracted signal</a></li>
-<li><a href="#markers-selection">Markers selection</a></li>
-</ul>
-</li>
-</ul>
+<h2 id="how-to-use-mpagenomics--a-namehow-to-use-mpa--toc">How to use MPAgenomics  <a> </a><a href="#toc">[toc]</a></h2>
+<h3 id="get-data--a-namehow-to-use-mpa--toc">Get data  <a> </a><a href="#toc">[toc]</a></h3>
+<h3 id="normalization--a-namenormalization--toc">Normalization  <a> </a><a href="#toc">[toc]</a></h3>
+<h3 id="segmentation-and-calling-of-normalized-data--a-nameseg-call--toc">Segmentation and Calling of normalized data  <a> </a><a href="#toc">[toc]</a></h3>
+<pre><code>- [Filtering](#filtering)
+- [Extract Copy number signal](#extract)
+- [Segmentation and Calling of an extracted signal](#seg-call-extracted)
+- [Markers selection](#markers-selection)
+</code></pre>
 
