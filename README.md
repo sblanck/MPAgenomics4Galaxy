@@ -16,7 +16,7 @@
 <ul>
 <li><a href="#get-data">Get data</a></li>
 <li><a href="#upload">Upload data to Galaxy</a></li>
-<li><a href="#normalization">Normalization</a></li>
+<li><a href="#normalization">Preprocess and normalization</a></li>
 <li><a href="seg-call">Segmentation and Calling of normalized data</a></li>
 <li><a href="#filtering">Filtering</a></li>
 <li><a href="#extract">Extract Copy number signal</a></li>
@@ -61,9 +61,24 @@ Then run the <a href="https://github.com/sblanck/MPAgenomics4Galaxy/blob/master/
 <p>An other zip file containing annotation files (.cdf, ufl, ugp and acs annotation files) is available <a href="https://nextcloud.univ-lille.fr/index.php/s/68NEXB9TwTnfEs2">here</a></p>
 <h3 id="upload-data-on-galaxy--a-nameupload--toc">Upload data on Galaxy  <a> </a><a href="#toc">[toc]</a></h3>
 <p>First you have to unzip the 2 zip files previously downloaded.</p>
-<p>Then upload the 8 .CEL files with the galaxy upload tool. Be careful to choose the correct datatype (.cel) with the upload tool as galaxy doesn’t autodetect .CEL files.</p>
-<p>You also need to upload the four annotation files. Here again, you need to specify the file type for each annotation file  (.cdf, .ufl, ugp, acs) as galaxy does not autodetect them.</p>
-<h3 id="normalization--a-namenormalization--toc">Normalization  <a> </a><a href="#toc">[toc]</a></h3>
+<p>Then upload the 8 .CEL files with the galaxy upload tool. Be careful to choose the correct datatype (.cel) with the upload tool as galaxy doesn’t auto-detect .CEL files.</p>
+<p>You also need to upload the four annotation files. Here again, you need to specify the file type for each annotation file  (.cdf, .ufl, .ugp, .acs) as galaxy does not auto-detect them.</p>
+<h3 id="preprocess-and-normalization--a-namenormalization--toc">Preprocess and normalization  <a> </a><a href="#toc">[toc]</a></h3>
+<p>This preprocessing step consists in a correction of biological and technical biaises due to the experiment. Raw data from Affymetrix arrays are provided in different CEL files. These data must be normalized before statistical analysis. The pre-processing is proposed as a wrapper of aroma packages (using CRMAv2 and TumorBoost when appropriate). Note that this implies that the pre-processing step is only available for Affymetrix arrays.</p>
+<p>This step is done with the Data normalization tool which have the following inputs :</p>
+<ul>
+<li>A list of .CEL files</li>
+<li>The 4 annotations files (.cdf, ufl, ugp, acs)</li>
+<li>An optionnal csv file in a case of a normal-tumor study with tumor boost</li>
+</ul>
+<p>The outputs are</p>
+<ul>
+<li>A .dsf file, summarizing the data</li>
+<li>An optionnal log files</li>
+<li>An optionnal zip file containing all the figures of the normalized data</li>
+</ul>
+<p><img src="https://github.com/sblanck/MPAgenomics4Galaxy/raw/master/images/normalization.png" alt="normalization"><br>
+<img src="https://github.com/sblanck/MPAgenomics4Galaxy/raw/master/images/normalization2.png" alt="normalization"></p>
 <h3 id="segmentation-and-calling-of-normalized-data--a-nameseg-call--toc">Segmentation and Calling of normalized data  <a> </a><a href="#toc">[toc]</a></h3>
 <h3 id="filtering--a-namefiltering--toc">Filtering  <a> </a><a href="#toc">[toc]</a></h3>
 <h3 id="extract-copy-number-signal--a-nameextract--toc">Extract Copy number signal  <a> </a><a href="#toc">[toc]</a></h3>
