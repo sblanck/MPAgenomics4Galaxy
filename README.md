@@ -117,13 +117,19 @@ GIGAS_g_GAINmixHapMapAffy2_GenomeWideEx_6_A01_31218.CEL	Example	GenomeWideSNP_6
 <li>Third column contains the chip type</li>
 </ul>
 <h3 id="segmentation-and-calling-of-normalized-data--a-nameseg-call--toc">Segmentation and Calling of normalized data  <a> </a><a href="#toc">[toc]</a></h3>
-<p>This tool segments the previously normalized profiles and labels segments found in the copy-number profiles.</p>
+<p>This tool segments the previously normalized profiles and labels segments found in the copy-number profiles.<br>
+<img src="https://github.com/sblanck/MPAgenomics4Galaxy/raw/master/images/segcall.png" alt="enter image description here"><br>
+<img src="https://github.com/sblanck/MPAgenomics4Galaxy/raw/master/images/segcall2.png" alt="enter image description here"></p>
 <h3 id="filtering--a-namefiltering--toc">Filtering  <a> </a><a href="#toc">[toc]</a></h3>
-<p>This tool filters results obtained by the segmentation and calling tool.</p>
+<p>This tool filters results obtained by the segmentation and calling tool.<br>
+<img src="https://github.com/sblanck/MPAgenomics4Galaxy/raw/master/images/filter.png" alt="enter image description here"></p>
 <h3 id="extract-copy-number-signal--a-nameextract--toc">Extract Copy number signal  <a> </a><a href="#toc">[toc]</a></h3>
-<p>This tool extracts the copy number profile from the normalized data.</p>
+<p>This tool extracts the copy number profile from the normalized data.<br>
+<img src="https://github.com/sblanck/MPAgenomics4Galaxy/raw/master/images/extract.png" alt="enter image description here"><br>
+<img src="https://github.com/sblanck/MPAgenomics4Galaxy/raw/master/images/extract2.png" alt="enter image description here"></p>
 <h3 id="segmentation-and-calling-of-an-extracted-signal--a-nameseg-call-extracted--toc">Segmentation and Calling of an extracted signal  <a> </a><a href="#toc">[toc]</a></h3>
-<p>This tool segments normalized profiles provided by the user and labels segments found in the copy-number profiles.</p>
+<p>This tool segments normalized profiles provided by the user and labels segments found in the copy-number profiles.<br>
+<img src="https://github.com/sblanck/MPAgenomics4Galaxy/raw/master/images/extract_prev.png" alt="enter image description here"></p>
 <h3 id="markers-selection--a-namemarkers-selection--toc">Markers selection  <a> </a><a href="#toc">[toc]</a></h3>
 <p>This tool selects some relevant markers according to a response using penalized regressions.</p>
 
