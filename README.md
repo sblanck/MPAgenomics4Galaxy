@@ -55,6 +55,9 @@ Then run the <a href="https://github.com/sblanck/MPAgenomics4Galaxy/blob/master/
 </code></pre>
 <h2 id="how-to-use-mpagenomics4galaxy--a-namehow-to-use-mpa--toc">How to use MPAgenomics4Galaxy  <a> </a><a href="#toc">[toc]</a></h2>
 <h3 id="get-data--a-namehow-to-use-mpa--toc">Get data  <a> </a><a href="#toc">[toc]</a></h3>
+<p>This introductory example aims at helping the user understand the main functions of MPAgenomics.<br>
+The example is based on a free data-set containing 8 CEL Files which can be downloaded <a href="https://nextcloud.univ-lille.fr/index.php/s/93ga3eNAxeSHFdi">here</a>, in a zip file.</p>
+<p>An other zip file containing annotation files (.cdf, ufl, ugp and acs annotation files) is available <a href="https://nextcloud.univ-lille.fr/index.php/s/68NEXB9TwTnfEs2">here</a></p>
 <h3 id="normalization--a-namenormalization--toc">Normalization  <a> </a><a href="#toc">[toc]</a></h3>
 <h3 id="segmentation-and-calling-of-normalized-data--a-nameseg-call--toc">Segmentation and Calling of normalized data  <a> </a><a href="#toc">[toc]</a></h3>
 <h3 id="filtering--a-namefiltering--toc">Filtering  <a> </a><a href="#toc">[toc]</a></h3>
