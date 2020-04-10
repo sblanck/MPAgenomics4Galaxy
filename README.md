@@ -263,7 +263,6 @@ GIGAS_g_GAINmixHapMapAffy2_GenomeWideEx_6_A01_31218.CEL	Example	GenomeWideSNP_6
 </ul>
 </li>
 <li>An optionnal log file</li>
-<li></li>
 </ul>
 <h3 id="markers-selection--a-namemarkers-selection--toc">Markers selection  <a> </a><a href="#toc">[toc]</a></h3>
 <p>This tool selects some relevant markers according to a response using penalized regressions.</p>
