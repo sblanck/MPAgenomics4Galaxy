@@ -198,7 +198,8 @@ GIGAS_g_GAINmixHapMapAffy2_GenomeWideEx_6_A01_31218.CEL	Example	GenomeWideSNP_6
 <p>An optionnal log file.</p>
 </li>
 </ul>
-<p>Example of the first lines of a .sef file</p>
+<p>Example of the first lines of a .sef file :<br>
+<img src="https://github.com/sblanck/MPAgenomics4Galaxy/raw/master/images/sef.png" alt="enter image description here"></p>
 <h3 id="segmentation-and-calling-of-an-extracted-signal--a-nameseg-call-extracted--toc">Segmentation and Calling of an extracted signal  <a> </a><a href="#toc">[toc]</a></h3>
 <p>This tool segments normalized profiles provided by the user and labels segments found in the copy-number profiles.<br>
 <img src="https://github.com/sblanck/MPAgenomics4Galaxy/raw/master/images/extract_prev.png" alt="enter image description here"></p>
