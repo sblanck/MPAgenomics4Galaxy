@@ -68,10 +68,10 @@ Then run the <a href="https://github.com/sblanck/MPAgenomics4Galaxy/blob/master/
 <p>This step is done with the Data normalization tool which have the following inputs :</p>
 <ul>
 <li>A list of .CEL files</li>
-<li>The 4 annotations files (.cdf, ufl, ugp, acs)</li>
+<li>The 4 chip annotations files (.cdf, ufl, ugp, acs)</li>
 <li>An optionnal csv file in a case of a normal-tumor study with tumor boost</li>
 </ul>
-<p>Chip filenames must strictly follow the following rules :</p>
+<p>Chip annotations filenames must strictly follow the following rules :</p>
 <ul>
 <li><em>.cdf</em> filename must comply with the following format : &lt; chiptype &gt;,&lt; tag &gt;.cdf (e.g, for a GenomeWideSNP_6 chip: GenomeWideSNP_6,Full.cdf). Note the use of a comma (not a point) between  and the tag “Full”.</li>
 <li><em>.ufl</em> filename must start with &lt; chiptype &gt;,&lt; tag &gt; (e.g, for a GenomeWideSNP_6 chip: GenomeWideSNP_6,Full,na31,hg19,HB20110328.ufl).</li>
