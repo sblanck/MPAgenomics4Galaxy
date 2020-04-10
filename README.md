@@ -65,8 +65,11 @@ Then run the <a href="https://github.com/sblanck/MPAgenomics4Galaxy/blob/master/
 <p>You also need to upload the four annotation files. Here again, you need to specify the file type for each annotation file  (.cdf, .ufl, .ugp, .acs) as galaxy does not auto-detect them.</p>
 <h3 id="preprocess-and-normalization--a-namenormalization--toc">Preprocess and normalization  <a> </a><a href="#toc">[toc]</a></h3>
 <p>This preprocessing step consists in a correction of biological and technical biaises due to the experiment. Raw data from Affymetrix arrays are provided in different CEL files. These data must be normalized before statistical analysis. The pre-processing is proposed as a wrapper of aroma packages (using CRMAv2 and TumorBoost when appropriate). Note that this implies that the pre-processing step is only available for Affymetrix arrays.</p>
+<p><img src="https://github.com/sblanck/MPAgenomics4Galaxy/raw/master/images/normalization.png" alt="normalization"><br>
+<img src="https://github.com/sblanck/MPAgenomics4Galaxy/raw/master/images/normalization2.png" alt="normalization"></p>
 <p>This step is done with the Data normalization tool which have the following inputs :</p>
 <ul>
+<li>A dataset name</li>
 <li>A list of .CEL files</li>
 <li>The 4 chip annotations files (.cdf, ufl, ugp, acs)</li>
 <li>An optionnal csv file in a case of a normal-tumor study with tumor boost</li>
@@ -113,11 +116,14 @@ GIGAS_g_GAINmixHapMapAffy2_GenomeWideEx_6_A01_31218.CEL	Example	GenomeWideSNP_6
 <li>Second column contains the name of the dataset</li>
 <li>Third column contains the chip type</li>
 </ul>
-<p><img src="https://github.com/sblanck/MPAgenomics4Galaxy/raw/master/images/normalization.png" alt="normalization"><br>
-<img src="https://github.com/sblanck/MPAgenomics4Galaxy/raw/master/images/normalization2.png" alt="normalization"></p>
 <h3 id="segmentation-and-calling-of-normalized-data--a-nameseg-call--toc">Segmentation and Calling of normalized data  <a> </a><a href="#toc">[toc]</a></h3>
+<p>This tool segments the previously normalized profiles and labels segments found in the copy-number profiles.</p>
 <h3 id="filtering--a-namefiltering--toc">Filtering  <a> </a><a href="#toc">[toc]</a></h3>
+<p>This tool filters results obtained by the segmentation and calling tool.</p>
 <h3 id="extract-copy-number-signal--a-nameextract--toc">Extract Copy number signal  <a> </a><a href="#toc">[toc]</a></h3>
+<p>This tool extracts the copy number profile from the normalized data.</p>
 <h3 id="segmentation-and-calling-of-an-extracted-signal--a-nameseg-call-extracted--toc">Segmentation and Calling of an extracted signal  <a> </a><a href="#toc">[toc]</a></h3>
+<p>This tool segments normalized profiles provided by the user and labels segments found in the copy-number profiles.</p>
 <h3 id="markers-selection--a-namemarkers-selection--toc">Markers selection  <a> </a><a href="#toc">[toc]</a></h3>
+<p>This tool selects some relevant markers according to a response using penalized regressions.</p>
 
