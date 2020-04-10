@@ -38,18 +38,20 @@ docker run -d -p 8080:80 -p 8021:21 -p 8022:22 sblanck/galaxy-mpagenomics
 <p>For more information about the parameters and docker usage, please refer to <a href="https://github.com/bgruening/docker-galaxy-stable/blob/master/README.md#Usage">https://github.com/bgruening/docker-galaxy-stable/blob/master/README.md#Usage</a></p>
 <h3 id="from-the-galaxy-toolshed-a-namefrom-the-galaxy-toolshed--toc">From the galaxy toolshed <a> </a><a href="#toc">[toc]</a></h3>
 <p><a href="https://testtoolshed.g2.bx.psu.edu/view/sblanck/mpagenomics_wrappers/af4f63f27c77">MPAgenomics wrappers are available on the galaxy test toolshed </a></p>
-<p>You also have to install R dependencies</p>
+<p>You also have to install R dependencies. You will need a recent version on R (&gt;=3.6) .<br>
+Then run the <a href="https://github.com/sblanck/MPAgenomics4Galaxy/blob/master/install.R">install.R</a> script available on this github :</p>
+<pre><code>Rscript install.R
+</code></pre>
 <ul>
-<li>
-<p>From bioconductor :</p>
+<li><a href="#how-to-use-mpa">How to use MPAgenomics</a>
 <ul>
-<li>TODO</li>
-</ul>
-</li>
-<li>
-<p>From CRAN :</p>
-<ul>
-<li>TODO</li>
+<li><a href="#get-data">Get data</a></li>
+<li><a href="#normalization">Normalization</a></li>
+<li><a href="seg-call">Segmentation and Calling of normalized data</a></li>
+<li><a href="#filtering">Filtering</a></li>
+<li><a href="#extract">Extract Copy number signal</a></li>
+<li><a href="#seg-call-extracted">Segmentation and Callinf of an extracted signal</a></li>
+<li><a href="#markers-selection">Markers selection</a></li>
 </ul>
 </li>
 </ul>
