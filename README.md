@@ -71,6 +71,13 @@ Then run the <a href="https://github.com/sblanck/MPAgenomics4Galaxy/blob/master/
 <li>The 4 annotations files (.cdf, ufl, ugp, acs)</li>
 <li>An optionnal csv file in a case of a normal-tumor study with tumor boost</li>
 </ul>
+<p>Chip filenames must strictly follow the following rules :</p>
+<ul>
+<li><em>.cdf</em> filename must comply with the following format : &lt; chiptype &gt;,&lt; tag &gt;.cdf (e.g, for a GenomeWideSNP_6 chip: GenomeWideSNP_6,Full.cdf). Note the use of a comma (not a point) between  and the tag “Full”.</li>
+<li><em>.ufl</em> filename must start with &lt; chiptype &gt;,&lt; tag &gt; (e.g, for a GenomeWideSNP_6 chip: GenomeWideSNP_6,Full,na31,hg19,HB20110328.ufl).</li>
+<li><em>.ugp</em> filename must start with &lt; chiptype &gt;,&lt; tag &gt; (e.g, for a GenomeWideSNP_6 chip: GenomeWideSNP_6,Full,na31,hg19,HB20110328.ugp).</li>
+<li><em>.acs</em> file name must start with &lt; chiptype &gt;,&lt; tag &gt; (e.g, for a GenomeWideSNP_6 chip: GenomeWideSNP_6,HB20080710.acs).</li>
+</ul>
 <p>In cases where normal (control) samples match to tumor samples, normalization can be improved using TumorBoost. In this case, a normal-tumor csv file must be provided :</p>
 <ul>
 <li>The first column contains the names of the files corresponding to normal samples of the dataset.</li>
@@ -79,7 +86,7 @@ Then run the <a href="https://github.com/sblanck/MPAgenomics4Galaxy/blob/master/
 <li>Columns are separated by a comma.</li>
 <li>Extensions of the files (.CEL for example) should be removed</li>
 </ul>
-<p>Example of a normal-tumor csv file :</p>
+<p>Example of a normal-tumor .csv file :</p>
 <pre><code>normal,tumor
 patient1_normal,patient1_tumor
 patient2_normal,patient2_tumor
@@ -89,7 +96,22 @@ patient3_normal,patient3_tumor
 <ul>
 <li>A .dsf file, summarizing the data</li>
 <li>An optionnal log files</li>
-<li>An optionnal zip file containing all the figures of the normalized data</li>
+<li>An optionnal .zip file containing all the figures of the normalized data</li>
+</ul>
+<p>Here is an example of a .dsf file</p>
+<pre><code>GIGAS_g_GAINmixHapMapAffy2_GenomeWideEx_6_A08_31330.CEL	Example	GenomeWideSNP_6
+GIGAS_g_GAINmixHapMapAffy2_GenomeWideEx_6_A07_31314.CEL	Example	GenomeWideSNP_6
+GIGAS_g_GAINmixHapMapAffy2_GenomeWideEx_6_A06_31298.CEL	Example	GenomeWideSNP_6
+GIGAS_g_GAINmixHapMapAffy2_GenomeWideEx_6_A05_31282.CEL	Example	GenomeWideSNP_6
+GIGAS_g_GAINmixHapMapAffy2_GenomeWideEx_6_A04_31266.CEL	Example	GenomeWideSNP_6
+GIGAS_g_GAINmixHapMapAffy2_GenomeWideEx_6_A03_31250.CEL	Example	GenomeWideSNP_6
+GIGAS_g_GAINmixHapMapAffy2_GenomeWideEx_6_A02_31234.CEL	Example	GenomeWideSNP_6
+GIGAS_g_GAINmixHapMapAffy2_GenomeWideEx_6_A01_31218.CEL	Example	GenomeWideSNP_6
+</code></pre>
+<ul>
+<li>First column contains the name of the file</li>
+<li>Second column contains the name of the dataset</li>
+<li>Third column contains the chip type</li>
 </ul>
 <p><img src="https://github.com/sblanck/MPAgenomics4Galaxy/raw/master/images/normalization.png" alt="normalization"><br>
 <img src="https://github.com/sblanck/MPAgenomics4Galaxy/raw/master/images/normalization2.png" alt="normalization"></p>
