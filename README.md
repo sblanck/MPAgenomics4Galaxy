@@ -71,6 +71,20 @@ Then run the <a href="https://github.com/sblanck/MPAgenomics4Galaxy/blob/master/
 <li>The 4 annotations files (.cdf, ufl, ugp, acs)</li>
 <li>An optionnal csv file in a case of a normal-tumor study with tumor boost</li>
 </ul>
+<p>In cases where normal (control) samples match to tumor samples, normalization can be improved using TumorBoost. In this case, a normal-tumor csv file must be provided :</p>
+<ul>
+<li>The first column contains the names of the files corresponding to normal samples of the dataset.</li>
+<li>The second column contains the names of the tumor samples files.</li>
+<li>Column names of these two columns are respectively normal and tumor.</li>
+<li>Columns are separated by a comma.</li>
+<li>Extensions of the files (.CEL for example) should be removed</li>
+</ul>
+<p>Example of a normal-tumor csv file :</p>
+<pre><code>normal,tumor
+patient1_normal,patient1_tumor
+patient2_normal,patient2_tumor
+patient3_normal,patient3_tumor
+</code></pre>
 <p>The outputs are</p>
 <ul>
 <li>A .dsf file, summarizing the data</li>
