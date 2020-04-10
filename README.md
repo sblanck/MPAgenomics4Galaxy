@@ -12,6 +12,17 @@
 <li><a href="#from-the-galaxy-toolshed">From the galaxy toolshed</a></li>
 </ul>
 </li>
+<li><a href="#how-to-use-mpa">How to use MPAgenomics</a>
+<ul>
+<li><a href="#get-data">Get data</a></li>
+<li><a href="#normalization">Normalization</a></li>
+<li><a href="seg-call">Segmentation and Calling of normalized data</a></li>
+<li><a href="#filtering">Filtering</a></li>
+<li><a href="#extract">Extract Copy number signal</a></li>
+<li><a href="#seg-call-extracted">Segmentation and Calling of an extracted signal</a></li>
+<li><a href="#markers-selection">Markers selection</a></li>
+</ul>
+</li>
 </ul>
 <h2 id="how-to-install-mpagenomics--a-namehow-to-install-mpa--toc">How to install MPAgenomics  <a> </a><a href="#toc">[toc]</a></h2>
 <h3 id="using-docker--a-nameusing-docker--toc">Using Docker  <a> </a><a href="#toc">[toc]</a></h3>
@@ -38,19 +49,16 @@ docker run -d -p 8080:80 -p 8021:21 -p 8022:22 sblanck/galaxy-mpagenomics
 <p>For more information about the parameters and docker usage, please refer to <a href="https://github.com/bgruening/docker-galaxy-stable/blob/master/README.md#Usage">https://github.com/bgruening/docker-galaxy-stable/blob/master/README.md#Usage</a></p>
 <h3 id="from-the-galaxy-toolshed-a-namefrom-the-galaxy-toolshed--toc">From the galaxy toolshed <a> </a><a href="#toc">[toc]</a></h3>
 <p><a href="https://testtoolshed.g2.bx.psu.edu/view/sblanck/mpagenomics_wrappers/af4f63f27c77">MPAgenomics wrappers are available on the galaxy test toolshed </a></p>
-<p>You also have to install R dependencies</p>
-<ul>
-<li>
-<p>From bioconductor :</p>
-<ul>
-<li>TODO</li>
-</ul>
-</li>
-<li>
-<p>From CRAN :</p>
-<ul>
-<li>TODO</li>
-</ul>
-</li>
-</ul>
+<p>You also have to install R dependencies. You will need a recent version on R (&gt;=3.6) .<br>
+Then run the <a href="https://github.com/sblanck/MPAgenomics4Galaxy/blob/master/install.R">install.R</a> script available on this github :</p>
+<pre><code>Rscript install.R
+</code></pre>
+<h2 id="how-to-use-mpagenomics--a-namehow-to-use-mpa--toc">How to use MPAgenomics  <a> </a><a href="#toc">toc</a></h2>
+<h3 id="get-data--a-namehow-to-use-mpa--toc">Get data  <a> </a><a href="#toc">[toc]</a></h3>
+<h3 id="normalization--a-namenormalization--toc">Normalization  <a> </a><a href="#toc">[toc]</a></h3>
+<h3 id="segmentation-and-calling-of-normalized-data--a-nameseg-call--toc">Segmentation and Calling of normalized data  <a> </a><a href="#toc">[toc]</a></h3>
+<h3 id="filtering--a-namefiltering--toc">Filtering  <a> </a><a href="#toc">[toc]</a></h3>
+<h3 id="extract-copy-number-signal--a-nameextract--toc">Extract Copy number signal  <a> </a><a href="#toc">[toc]</a></h3>
+<h3 id="segmentation-and-calling-of-an-extracted-signal--a-nameseg-call-extracted--toc">Segmentation and Calling of an extracted signal  <a> </a><a href="#toc">[toc]</a></h3>
+<h3 id="markers-selection--a-namemarkers-selection--toc">Markers selection  <a> </a><a href="#toc">[toc]</a></h3>
 
