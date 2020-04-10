@@ -15,6 +15,7 @@
 <li><a href="#how-to-use-mpa">How to use MPAgenomics4Galaxy</a>
 <ul>
 <li><a href="#get-data">Get data</a></li>
+<li><a href="#upload">Upload data to Galaxy</a></li>
 <li><a href="#normalization">Normalization</a></li>
 <li><a href="seg-call">Segmentation and Calling of normalized data</a></li>
 <li><a href="#filtering">Filtering</a></li>
@@ -55,9 +56,13 @@ Then run the <a href="https://github.com/sblanck/MPAgenomics4Galaxy/blob/master/
 </code></pre>
 <h2 id="how-to-use-mpagenomics4galaxy--a-namehow-to-use-mpa--toc">How to use MPAgenomics4Galaxy  <a> </a><a href="#toc">[toc]</a></h2>
 <h3 id="get-data--a-namehow-to-use-mpa--toc">Get data  <a> </a><a href="#toc">[toc]</a></h3>
-<p>This introductory example aims at helping the user understand the main functions of MPAgenomics.<br>
-The example is based on a free data-set containing 8 CEL Files which can be downloaded <a href="https://nextcloud.univ-lille.fr/index.php/s/93ga3eNAxeSHFdi">here</a>, in a zip file.</p>
+<p>This introductory example aims at helping the user understand the main functions of MPAgenomics.</p>
+<p>The example is based on a free data-set containing 8 CEL Files which can be downloaded <a href="https://nextcloud.univ-lille.fr/index.php/s/93ga3eNAxeSHFdi">here</a>, in a zip file.</p>
 <p>An other zip file containing annotation files (.cdf, ufl, ugp and acs annotation files) is available <a href="https://nextcloud.univ-lille.fr/index.php/s/68NEXB9TwTnfEs2">here</a></p>
+<h3 id="upload-data-on-galaxy--a-nameupload--toc">Upload data on Galaxy  <a> </a><a href="#toc">[toc]</a></h3>
+<p>First you have to unzip the 2 zip files previously downloaded.</p>
+<p>Then upload the 8 .CEL files with the galaxy upload tool. Be careful to choose the correct datatype (.cel) with the upload tool as galaxy doesn’t autodetect .CEL files.</p>
+<p>You also need to upload the four annotation files. Here again, you need to specify the file type for each annotation file  (.cdf, .ufl, ugp, acs) as galaxy does not autodetect them.</p>
 <h3 id="normalization--a-namenormalization--toc">Normalization  <a> </a><a href="#toc">[toc]</a></h3>
 <h3 id="segmentation-and-calling-of-normalized-data--a-nameseg-call--toc">Segmentation and Calling of normalized data  <a> </a><a href="#toc">[toc]</a></h3>
 <h3 id="filtering--a-namefiltering--toc">Filtering  <a> </a><a href="#toc">[toc]</a></h3>
