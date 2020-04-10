@@ -57,9 +57,8 @@ Then run the <a href="https://github.com/sblanck/MPAgenomics4Galaxy/blob/master/
 <h3 id="get-data--a-namehow-to-use-mpa--toc">Get data  <a> </a><a href="#toc">[toc]</a></h3>
 <h3 id="normalization--a-namenormalization--toc">Normalization  <a> </a><a href="#toc">[toc]</a></h3>
 <h3 id="segmentation-and-calling-of-normalized-data--a-nameseg-call--toc">Segmentation and Calling of normalized data  <a> </a><a href="#toc">[toc]</a></h3>
-<pre><code>- [Filtering](#filtering)
-- [Extract Copy number signal](#extract)
-- [Segmentation and Calling of an extracted signal](#seg-call-extracted)
-- [Markers selection](#markers-selection)
-</code></pre>
+<h3 id="filtering--a-namefiltering--toc">Filtering  <a> </a><a href="#toc">[toc]</a></h3>
+<h3 id="extract-copy-number-signal--a-nameextract--toc">Extract Copy number signal  <a> </a><a href="#toc">[toc]</a></h3>
+<h3 id="segmentation-and-calling-of-an-extracted-signal--a-nameseg-call-extracted--toc">Segmentation and Calling of an extracted signal  <a> </a><a href="#toc">[toc]</a></h3>
+<h3 id="markers-selection--a-namemarkers-selection--toc">Markers selection  <a> </a><a href="#toc">[toc]</a></h3>
 
