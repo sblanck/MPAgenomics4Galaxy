@@ -157,6 +157,10 @@ GIGAS_g_GAINmixHapMapAffy2_GenomeWideEx_6_A01_31218.CEL	Example	GenomeWideSNP_6
 <li>An optionnal .zip files containing the figures of the segmentation</li>
 <li>An optionnal log file</li>
 </ul>
+<p>Here is an example of a .scr file :<br>
+<img src="https://github.com/sblanck/MPAgenomics4Galaxy/raw/master/images/scr.png" alt="example of an scr file"></p>
+<p>And a example of a figure of a segmented chromosome:<br>
+<img src="https://github.com/sblanck/MPAgenomics4Galaxy/raw/master/images/segchr17.png" alt="Example of a figure"></p>
 <h3 id="filtering--a-namefiltering--toc">Filtering  <a> </a><a href="#toc">[toc]</a></h3>
 <p>This tool filters results obtained by the segmentation and calling tool.<br>
 <img src="https://github.com/sblanck/MPAgenomics4Galaxy/raw/master/images/filter.png" alt="enter image description here"></p>
