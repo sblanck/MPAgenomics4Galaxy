@@ -1,4 +1,4 @@
 <?xml version="1.0"?>
 <repositories description="mpagenomics datatypes">
-  <repository name="mpagenomics_datatypes" owner="sblanck" toolshed="testtoolshed.g2.bx.psu.edu" />
+  <repository name="mpagenomics_datatypes" owner="sblanck" toolshed="toolshed.g2.bx.psu.edu" />
 </repositories>
