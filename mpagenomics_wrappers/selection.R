@@ -7,28 +7,6 @@ loc <- Sys.setlocale("LC_MESSAGES", "en_US.UTF-8")
 
 library("optparse")
 
-#--input '$input'  
-#--response '$response' 
-#--chrom '$chromosome' 
-#--new_file_path '$__new_file_path__' 
-#--settingsSignal '$settingsSNP.signal'
-#--settingsSnp '$settingsSNP.snp' 
-#--settingsSnp 'none'
-#--settingsType '$settings.settingsType'
-#--settingsType '$tumorcsv' 
-#--settingsType 'none'
-#--folds '$folds' 
-#--settingsLoss '$settingsLoss.loss' 
-#--outputgraph '$outputgraph' 
-#--output '$output' 
-#--pdffigures '$pdffigures' 
-#--outputlog '$outputlog' 
-#--log '$log' 
-#--userId'$__user_id__'
-#--settingsPackage '$settingsLoss.package' 
-#--settingsPackage 'HDPenReg'
-
-
 ##### Read options
 option_list=list(
 		make_option("--chrom",type="character",default=NULL, dest="chrom"),
@@ -77,27 +55,6 @@ outputlog=opt$outputlog
 outputgraph=opt$outputgraph
 pdffigures=opt$pdffigures
 package=opt$settingsPackage
-
-
-#args<-commandArgs(TRUE)
-#options(stringsAsFactors = FALSE)
-#print("passe")
-#input=args[1]
-#dataResponse=args[2]
-#chrom=args[3]
-#tmp_dir=args[4]
-#signal=args[5]
-#snp=type.convert(args[6])
-#settingsType=args[7]
-#tumor=args[8]
-#fold=as.integer(args[9])
-#loss=args[10]
-#plot=type.convert(args[11])
-#output=args[12]
-#user=args[13]
-#package=args[14]
-
-
 
 
 library(MPAgenomics)
@@ -160,6 +117,11 @@ if (outputgraph){
 	file.rename(file.path(tmp_dir,"mpagenomics",user,"Rplots.pdf"), pdffigures)
 }
 
+if (outputlog){
+	sink(type="output")
+	sink(type="message")
+	close(sinklog)
+} 
 
 if (markerSelected) {
 	colnames(df) <- c("chr","position","index","names","coefficient")
