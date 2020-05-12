@@ -268,4 +268,54 @@ GIGAS_g_GAINmixHapMapAffy2_GenomeWideEx_6_A01_31218.CEL	Example	GenomeWideSNP_6
 <p>This tool selects some relevant markers according to a response using penalized regressions.</p>
 <p><img src="https://github.com/sblanck/MPAgenomics4Galaxy/raw/master/images/Selection1.png" alt="Marker Selection"><br>
 <img src="https://github.com/sblanck/MPAgenomics4Galaxy/raw/master/images/Selection2.png" alt="Marker Selection"></p>
+<p>Output:</p>
+<p>A tabular text file containing 5 columns which describe all the selected SNPs (1 line per SNPs):</p>
+<ul>
+<li>chr: Chromosome containing the selected SNP.</li>
+<li>position: Position of the selected SNP.</li>
+<li>index: Index of the selected SNP.</li>
+<li>names: Name of the selected SNP.</li>
+<li>coefficient: Regression coefficient of the selected SNP.</li>
+</ul>
+<p><strong>Data Response csv file</strong></p>
+<p>Data response csv file format:</p>
+<ul>
+<li>The first column contains the names of the different files of the data-set.</li>
+<li>The second column contains the response associated with each file.</li>
+<li>Column names of these two columns are respectively files and response.</li>
+<li>Columns are separated by a comma</li>
+<li><em>Extensions of the files (.CEL for example) should be removed</em></li>
+</ul>
+<p><strong>Example</strong></p>
+<p>Let 3 .cel files in the studied dataset</p>
+<p>patient1.cel<br>
+patient2.cel<br>
+patient3.cel</p>
+<p>The csv file should look like this</p>
+<p>files,response<br>
+patient1,1.92145<br>
+patient2,2.12481<br>
+patient3,1.23545</p>
+<p><strong>Normal-tumor study</strong></p>
+<p>In cases where normal (control) samples match to tumor samples, they are taken as references to extract copy number profile. In this case, a normal-tumor csv file must be provided :</p>
+<ul>
+<li>The first column contains the names of the files corresponding to normal samples of the dataset.</li>
+<li>The second column contains the names of the tumor samples files.</li>
+<li>Column names of these two columns are respectively normal and tumor.</li>
+<li>Columns are separated by a comma.</li>
+<li><em>Extensions of the files (.CEL for example) should be removed</em></li>
+</ul>
+<p><strong>Example</strong></p>
+<p>Let 6 .cel files in the studied dataset (3 patients, each of them being represented by a couple of normal and tumor cel file.)</p>
+<p>patient1_normal.cel<br>
+patient1_tumor.cel<br>
+patient2_normal.cel<br>
+patient2_tumor.cel<br>
+patient3_normal.cel<br>
+patient3_tumor.cel</p>
+<p>The csv file should look like this</p>
+<p>normal,tumor<br>
+patient1_normal,patient1_tumor<br>
+patient2_normal,patient2_tumor<br>
+patient3_normal,patient3_tumor</p>
 
