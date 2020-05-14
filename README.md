@@ -19,9 +19,10 @@
 <li><a href="#normalization">Preprocess and normalization</a></li>
 <li><a href="seg-call">Segmentation and Calling of normalized data</a></li>
 <li><a href="#extract">Extract Copy number signal</a></li>
-<li><a href="#seg-call-extracted">Segmentation and Calling of a previously normalized signal</a></li>
+<li><a href="#seg-call-extracted">Segmentation and Calling of a normalized signal matrix data</a></li>
 <li><a href="#filtering">Filtering</a></li>
 <li><a href="#markers-selection">Markers selection</a></li>
+<li><a href="#markers-selection-extracted">Markers selection of a normalized signal matrix data</a></li>
 </ul>
 </li>
 </ul>
@@ -200,7 +201,7 @@ GIGAS_g_GAINmixHapMapAffy2_GenomeWideEx_6_A01_31218.CEL	Example	GenomeWideSNP_6
 </ul>
 <p>Example of the first lines of a .sef file :</p>
 <p><img src="https://github.com/sblanck/MPAgenomics4Galaxy/raw/master/images/sef.png" alt="enter image description here"></p>
-<h3 id="segmentation-and-calling-of-a-previously-normalized-signal--a-nameseg-call-extracted--toc">Segmentation and Calling of a previously normalized signal  <a> </a><a href="#toc">[toc]</a></h3>
+<h3 id="segmentation-and-calling-of-a-normalized-signal--matrix-data-a-nameseg-call-extracted--toc">Segmentation and Calling of a normalized signal  matrix data <a> </a><a href="#toc">[toc]</a></h3>
 <p>This tool segments normalized profiles provided by the user and labels segments found in the copy-number profiles.</p>
 <p><img src="https://github.com/sblanck/MPAgenomics4Galaxy/raw/master/images/extract_prev.png" alt="enter image description here"><br>
 <em>The Segmentation and Calling of a previously normalized data</em> tool have the following inputs :</p>
@@ -328,4 +329,6 @@ patient3_tumor.cel</p>
 patient1_normal,patient1_tumor<br>
 patient2_normal,patient2_tumor<br>
 patient3_normal,patient3_tumor</p>
+<h3 id="markers-selection-from-normalized-signal-matrix-data-a-namemarkers-selection-extracted--toc">Markers selection from normalized signal matrix data <a> </a><a href="#toc">[toc]</a></h3>
+<p>This tool selects some relevant markers from normalized signal matrix data , according to a response using penalized regressions.</p>
 
