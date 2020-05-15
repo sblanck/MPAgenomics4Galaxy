@@ -66,8 +66,7 @@ Then run the <a href="https://github.com/sblanck/MPAgenomics4Galaxy/blob/master/
 <p>You also need to upload the four annotation files. Here again, you need to specify the file type for each annotation file  (.cdf, .ufl, .ugp, .acs) as galaxy does not auto-detect them.</p>
 <h3 id="preprocess-and-normalization--a-namenormalization--toc">Preprocess and normalization  <a> </a><a href="#toc">[toc]</a></h3>
 <p>This preprocessing step consists in a correction of biological and technical biaises due to the experiment. Raw data from Affymetrix arrays are provided in different CEL files. These data must be normalized before statistical analysis. The pre-processing is proposed as a wrapper of aroma packages (using CRMAv2 and TumorBoost when appropriate). Note that this implies that the pre-processing step is only available for Affymetrix arrays.</p>
-<pre><code>:warning: **This step may take several hours**
-</code></pre>
+<p>⚠️ <strong>This step may take several hours</strong></p>
 <p><img src="https://github.com/sblanck/MPAgenomics4Galaxy/raw/master/images/normalization.png" alt="normalization"><br>
 <img src="https://github.com/sblanck/MPAgenomics4Galaxy/raw/master/images/normalization2.png" alt="normalization"></p>
 <p>This step is done with the Data normalization tool which have the following inputs :</p>
