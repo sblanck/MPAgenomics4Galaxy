@@ -196,7 +196,7 @@ GIGAS_g_GAINmixHapMapAffy2_GenomeWideEx_6_A01_31218.CEL	Example	GenomeWideSNP_6
 <li>chr: Chromosome.</li>
 <li>position: Genomic position (in bp).</li>
 <li>probeNames: Name of the probes of the microarray.</li>
-<li>One column per sample which contains the copy number profile for each sample.</li>
+<li>One column per sample which contains the signal values for each sample.</li>
 </ul>
 </li>
 <li>
