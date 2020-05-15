@@ -66,7 +66,9 @@ Then run the <a href="https://github.com/sblanck/MPAgenomics4Galaxy/blob/master/
 <p>You also need to upload the four annotation files. Here again, you need to specify the file type for each annotation file  (.cdf, .ufl, .ugp, .acs) as galaxy does not auto-detect them.</p>
 <h3 id="preprocess-and-normalization--a-namenormalization--toc">Preprocess and normalization  <a> </a><a href="#toc">[toc]</a></h3>
 <p>This preprocessing step consists in a correction of biological and technical biaises due to the experiment. Raw data from Affymetrix arrays are provided in different CEL files. These data must be normalized before statistical analysis. The pre-processing is proposed as a wrapper of aroma packages (using CRMAv2 and TumorBoost when appropriate). Note that this implies that the pre-processing step is only available for Affymetrix arrays.</p>
+<blockquote>
 <p>⚠️ <strong>This step may take several hours</strong></p>
+</blockquote>
 <p><img src="https://github.com/sblanck/MPAgenomics4Galaxy/raw/master/images/normalization.png" alt="normalization"><br>
 <img src="https://github.com/sblanck/MPAgenomics4Galaxy/raw/master/images/normalization2.png" alt="normalization"></p>
 <p>This step is done with the Data normalization tool which have the following inputs :</p>
@@ -118,6 +120,8 @@ GIGAS_g_GAINmixHapMapAffy2_GenomeWideEx_6_A01_31218.CEL	Example	GenomeWideSNP_6
 <li>Second column contains the name of the dataset</li>
 <li>Third column contains the chip type</li>
 </ul>
+<p>And here is an example of figures of normalized data :</p>
+<p><img src="https://github.com/sblanck/MPAgenomics4Galaxy/raw/master/images/normalized_figures.png" alt="enter image description here"></p>
 <h3 id="segmentation-and-calling-of-normalized-data--a-nameseg-call--toc">Segmentation and Calling of normalized data  <a> </a><a href="#toc">[toc]</a></h3>
 <p>This tool segments the previously normalized profiles and labels segments found in the copy-number profiles.</p>
 <p><img src="https://github.com/sblanck/MPAgenomics4Galaxy/raw/master/images/segcall.png" alt="enter image description here"><br>
