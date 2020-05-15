@@ -50,7 +50,7 @@ docker run -d -p 8080:80 -p 8021:21 -p 8022:22 sblanck/galaxy-mpagenomics
 </code></pre>
 <p>For more information about the parameters and docker usage, please refer to <a href="https://github.com/bgruening/docker-galaxy-stable/blob/master/README.md#Usage">https://github.com/bgruening/docker-galaxy-stable/blob/master/README.md#Usage</a></p>
 <h3 id="from-the-galaxy-toolshed-a-namefrom-the-galaxy-toolshed--toc">From the galaxy toolshed <a> </a><a href="#toc">[toc]</a></h3>
-<p><a href="https://testtoolshed.g2.bx.psu.edu/view/sblanck/mpagenomics_wrappers/af4f63f27c77">MPAgenomics wrappers are available on the galaxy test toolshed </a></p>
+<p><a href="https://toolshed.g2.bx.psu.edu/view/sblanck/mpagenomics/b3acec804ebc">MPAgenomics wrappers are available on the galaxy toolshed </a></p>
 <p>You also have to install R dependencies. You will need a recent version on R (&gt;=3.6) .<br>
 Then run the <a href="https://github.com/sblanck/MPAgenomics4Galaxy/blob/master/install.R">install.R</a> script available on this github :</p>
 <pre><code>Rscript install.R
