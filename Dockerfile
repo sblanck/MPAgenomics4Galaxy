@@ -37,6 +37,7 @@ ADD tools.yml $GALAXY_ROOT/tools.yaml
 RUN install-tools $GALAXY_ROOT/tools.yaml && \
     /tool_deps/_conda/bin/conda clean --tarballs
     
+ADD integrated_tool_panel.xml /export/galaxy-central/integrated_tool_panel.xml
 
 # Mark folders as imported from the host.
 VOLUME ["/export/", "/data/", "/var/lib/docker"]
