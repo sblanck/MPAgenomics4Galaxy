@@ -6,23 +6,23 @@
 <h1 id="mpagenomics4galaxy">MPAgenomics4Galaxy</h1>
 <p>MPAgenomics, standing for multi-patients analysis (MPA) of genomic markers, is an R-package devoted to: (i) efficient segmentation, and (ii) genomic marker selection from multi-patient copy number and SNP data profiles. It provides wrappers from commonly used packages to facilitate their repeated (sometimes difficult) use, offering an easy-to-use pipeline for beginners in R. The segmentation of successive multiple profiles (finding losses and gains) is based on a new automatic choice of influential parameters since default ones were misleading in the original packages. Considering multiple profiles in the same time, MPAgenomics wraps efficient penalized regression methods to select relevant markers associated with a given response.</p>
 <ul>
-<li><a href="#how-to-install-mpa">How to install MPAgenomics4Galaxy</a>
+<li><a href="#how-to-install-mpa---toc">How to install MPAgenomics4Galaxy</a>
 <ul>
 <li><a href="#using-docker---toc">Using docker</a></li>
-<li><a href="#from-the-galaxy-toolshed">From the galaxy toolshed</a></li>
+<li><a href="#from-the-galaxy-toolshed---toc">From the galaxy toolshed</a></li>
 </ul>
 </li>
-<li><a href="#how-to-use-mpa">How to use MPAgenomics4Galaxy</a>
+<li><a href="#how-to-use-mpa---toc">How to use MPAgenomics4Galaxy</a>
 <ul>
-<li><a href="#get-data">Get data</a></li>
-<li><a href="#upload">Upload data to Galaxy</a></li>
-<li><a href="#normalization">Preprocess and normalization</a></li>
-<li><a href="seg-call">Segmentation and Calling of normalized data</a></li>
-<li><a href="#extract">Extract Copy number signal</a></li>
-<li><a href="#seg-call-extracted">Segmentation and Calling of a normalized signal matrix data</a></li>
-<li><a href="#filtering">Filtering</a></li>
-<li><a href="#markers-selection">Markers selection</a></li>
-<li><a href="#markers-selection-extracted">Markers selection of a normalized signal matrix data</a></li>
+<li><a href="#get-data---toc">Get data</a></li>
+<li><a href="#upload---toc">Upload data to Galaxy</a></li>
+<li><a href="#normalization---toc">Preprocess and normalization</a></li>
+<li><a href="seg-call---toc">Segmentation and Calling of normalized data</a></li>
+<li><a href="#extract---toc">Extract Copy number signal</a></li>
+<li><a href="#seg-call-extracted---toc">Segmentation and Calling of a normalized signal matrix data</a></li>
+<li><a href="#filtering---toc">Filtering</a></li>
+<li><a href="#markers-selection---toc">Markers selection</a></li>
+<li><a href="#markers-selection-extracted---toc">Markers selection of a normalized signal matrix data</a></li>
 </ul>
 </li>
 </ul>
