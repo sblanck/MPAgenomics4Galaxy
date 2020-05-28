@@ -22,7 +22,7 @@
 <li><a href="#seg-call-extracted">Segmentation and Calling of a normalized signal matrix data</a></li>
 <li><a href="#filtering">Filtering</a></li>
 <li><a href="#markers-selection">Markers selection</a></li>
-<li><a href="#markers-selection-extracted">Markers selection of a normalized signal matrix data</a></li>
+<li><a href="#markers-selection-extracted">Markers selection of a normalized signal matrix dat</a></li>
 </ul>
 </li>
 </ul>
