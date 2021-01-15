@@ -1,8 +1,8 @@
 <tool id="preprocess" name="Data Normalization" force_history_refresh="True" version="1.1.0">
-  	<requirements>
-    <requirement type="set_environment">R_SCRIPT_PATH</requirement>
-    </requirements>
-	<!--command interpreter="python"-->
+  <requirements>
+      <container type="docker">sblanck/mpagenomicsdependencies</container>
+  </requirements>
+	
     <command>
     	<![CDATA[ 
         Rscript 

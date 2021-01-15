@@ -1,4 +1,7 @@
 <tool id="markersSelection" name="Markers selection" force_history_refresh="True" version="0.1.0">
+   <requirements>
+        <container type="docker">sblanck/mpagenomicsdependencies</container>
+  </requirements>
   <description> of previously extracted signal</description>
   <command>
   	<![CDATA[ 

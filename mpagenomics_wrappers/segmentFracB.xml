@@ -1,5 +1,8 @@
 <tool id="segFracB" name="Segmentation of allele B fraction " force_history_refresh="True" version="1.0.0">
   <description></description>
+   <requirements>
+        <container type="docker">sblanck/mpagenomicsdependencies</container>
+  </requirements>
   <command>
     <![CDATA[ 
         Rscript
