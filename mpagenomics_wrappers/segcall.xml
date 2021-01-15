@@ -1,6 +1,5 @@
 <tool id="segcall" name="Segmentation and calling" force_history_refresh="True" version="1.1.0">
   <description>of the normalized data</description>
-  <requirement type="package" version="1.1.2">mpagenomics</requirement>
   <command>
     <![CDATA[ 
         Rscript 

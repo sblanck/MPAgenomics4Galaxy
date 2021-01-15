@@ -6,7 +6,7 @@
         ${__tool_directory__}/selectionExtracted.R 
     --input '$input' 
   	--response '$response' 
-  	--new_file_path '$__new_file_path__' 
+  	--new_file_path '$output.extra_files_path' 
   	--folds '$folds' 
   	--loss '$loss' 
   	--outputlog '$outputlog' 

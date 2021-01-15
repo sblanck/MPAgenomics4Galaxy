@@ -50,7 +50,9 @@ nbcall_vecstring <-unlist(nbcall_tmp)
 nbcall_vecstring
 
 library(MPAgenomics)
-workdir=file.path(tmp_dir, "mpagenomics")
+workdir=file.path(tmp_dir)
+if (!dir.exists(workdir))
+  dir.create(workdir, showWarnings = TRUE, recursive = TRUE)
 setwd(workdir)
 
 segcall = read.table(input, header = TRUE)

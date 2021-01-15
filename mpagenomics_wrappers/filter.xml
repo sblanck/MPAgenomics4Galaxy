@@ -7,7 +7,7 @@
   		--input '$input' 
   		--length '$length' 
   		--probes '$probes' 
-  		--new_file_path '$__new_file_path__' 
+  		--new_file_path '$output.extra_files_path' 
   		--nbcall '$nbcall' 
   		--output '$output' 
   		--outputlog '$outputlog' 

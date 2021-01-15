@@ -11,6 +11,7 @@ library("optparse")
 option_list=list(
 		make_option("--chrom",type="character",default=NULL, dest="chrom"),
 		make_option("--input",type="character",default=NULL, dest="input"),
+		make_option("--zip",type="character",default=NULL, dest="zip"),
 		make_option("--output",type="character",default=NULL, dest="output"),
 		make_option("--new_file_path",type="character",default=NULL, dest="new_file_path"),
 		make_option("--settings_type",type="character",default=NULL, dest="settings_type"),
@@ -35,6 +36,7 @@ if(is.null(opt$input)){
 
 chrom=opt$chrom
 input=opt$input
+zip=opt$zip
 tmp_dir=opt$new_file_path
 output=opt$output
 settingsType=opt$settings_type
@@ -47,8 +49,18 @@ log=opt$log
 user=opt$userid
 
 library(MPAgenomics)
-workdir=file.path(tmp_dir, "mpagenomics",user)
+#workdir=file.path(tmp_dir, "mpagenomics",user)
+workdir=file.path(tmp_dir)
+if (!dir.exists(workdir))
+  dir.create(workdir, showWarnings = TRUE, recursive = TRUE)
 setwd(workdir)
+# tmpzip=file.copy(from = zip,to=paste0(workdir,"/tmp.zip"))
+# tmpzip
+unzip(zipfile = zip,exdir = workdir)
+# if (file.exists(tmpzip)) {
+#   #Delete file if it exists
+#   file.remove(fn)
+# }
 
 inputDataset=read.table(file=input,stringsAsFactors=FALSE)
 dataset=inputDataset[1,2]
@@ -162,6 +174,9 @@ if (signal == "CN")
 	}
 	
 }
+
+if (dir.exists(workdir))
+  system(paste0("rm -r ", workdir))
 
 if (outputlog){
 	sink(type="output")

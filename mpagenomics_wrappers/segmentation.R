@@ -58,7 +58,9 @@ signalType=opt$signalType
 #signalType=args[8]
 
 library(MPAgenomics)
-workdir=file.path(tmp_dir,"mpagenomics",userId)
+workdir=file.path(tmp_dir)
+if (!dir.exists(workdir))
+  dir.create(workdir, showWarnings = TRUE, recursive = TRUE)
 setwd(workdir)
 
 if (outputlog){
@@ -129,7 +131,7 @@ write.table(finalResult,output,row.names = FALSE, quote=FALSE, sep = "\t")
 }
 
 if (outputgraph){
-	file.rename(file.path(tmp_dir,"mpagenomics",userId,"Rplots.pdf"), graph)
+	file.rename(file.path(workdir,"Rplots.pdf"), graph)
 }
 
 if (outputlog){

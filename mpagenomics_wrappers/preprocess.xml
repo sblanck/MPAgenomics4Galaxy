@@ -1,15 +1,14 @@
 <tool id="preprocess" name="Data Normalization" force_history_refresh="True" version="1.1.0">
   	<requirements>
-    <!--requirement type="set_environment">R_SCRIPT_PATH</requirement-->
-    <requirement type="package" version="1.1.2">mpagenomics</requirement>
-   </requirements>
+    <requirement type="set_environment">R_SCRIPT_PATH</requirement>
+    </requirements>
 	<!--command interpreter="python"-->
     <command>
     	<![CDATA[ 
         Rscript 
         ${__tool_directory__}/preprocess.R	
 		--summary '$summary' 
-		--new_file_path '$__new_file_path__'  
+		--new_file_path '$zipresults.extra_files_path'  
 		--inputcdffull_name '$inputcdffull.name' 
 		--inputufl_name '$inputufl.name' 
 		--inputugp_name '$inputugp.name' 
@@ -28,8 +27,9 @@
   	 --settingsType '$settings.settingsType' 
 	 --outputgraph '$outputgraph' 
 	 --zipfigures '$zipfigures' 
+	 --zipresults '$zipresults'
 	 --outputlog '$outputlog' 
-	 --log '$log' 
+	 --log '$log'
 	 --user_id '$__user_id__'
 	 --input "#for $input in $inputs# $input;$input.name, #end for#"
     	]]>
@@ -72,7 +72,8 @@
   	     doesn't occur. 
   	-->
     <data format="dsf" name="summary" label="Dataset summary file of ${datasetName}" />
-    <data format="zip" name="zipfigures" label="figures of normalization of ${datasetName}">
+    <data format="zip" name="zipresults" label="Results of normalization of ${datasetName}"/>
+    <data format="zip" name="zipfigures" label="Figures of normalization of ${datasetName}">
     	<filter>outputgraph == "TRUE"</filter>	
     </data>    
     <data format="log" name="log" label="log of normalization ${datasetName}">

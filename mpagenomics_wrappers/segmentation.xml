@@ -1,6 +1,5 @@
 <tool id="segmentation" name="Segmentation and calling" force_history_refresh="True" version="1.1.0">
   <description>of a previously normalized signal</description>
-  <requirement type="package" version="1.1.2">mpagenomics</requirement>
   <command>
     <![CDATA[ 
         Rscript 
@@ -13,7 +12,7 @@
   			--cellularity '1.0'
   		#end if
   		--input '$input' 
-  		--new_file_path '$__new_file_path__' 
+  		--new_file_path '$output.extra_files_path' 
   		--outputlog '$outputlog' 
   		--output '$output' 
   		--log '$log' 

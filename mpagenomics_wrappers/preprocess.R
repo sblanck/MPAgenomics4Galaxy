@@ -24,6 +24,7 @@ option_list=list(
 		make_option("--settingsType",type="character",default=NULL, dest="settingsType"),
 		make_option("--outputgraph",type="character",default=NULL, dest="outputgraph"),
 		make_option("--zipfigures",type="character",default=NULL, dest="zipfigures"),
+		make_option("--zipresults",type="character",default=NULL, dest="zipresults"),
 		make_option("--outputlog",type="character",default=NULL, dest="outputlog"),
 		make_option("--log",type="character",default=NULL, dest="log"),
 		make_option("--user_id",type="character",default=NULL, dest="user_id"),
@@ -55,6 +56,7 @@ tumorcsv=opt$tumorcsv
 settingsType=opt$settingsType
 outputGraph=opt$outputgraph
 zipfigures=opt$zipfigures
+zipresults=opt$zipresults
 outputlog=opt$outputlog
 log=opt$log
 userId=opt$user_id
@@ -143,12 +145,20 @@ if (settingsType=="standard")
 } else {
 	signalPreProcess(dataSetName=dataset, chipType=chip, dataSetPath=celPath,chipFilesPath=chipPath, normalTumorArray=tumor, path=workdir,createArchitecture=createArchitecture, savePlot=outputgraph, tags=tag)
 }
+setwd(mpagenomicsDir)
+zip(zipfile = "results.zip", files = ".")
+file.rename("results.zip",zipresults)
 setwd(abs_fig_dir)
 files2zip <- dir(abs_fig_dir)
 zip(zipfile = "figures.zip", files = files2zip)
 file.rename("figures.zip",zipfigures)
+
 summarydf=data.frame(celFileNameList,rep(dataSetName,length(celFileNameList)),rep(chipType,length(celFileNameList)))
 write.table(summarydf,file=summary,quote=FALSE,row.names=FALSE,col.names=FALSE,sep="\t")
+
+if (dir.exists(mpagenomicsDir))
+  system(paste0("rm -r ", mpagenomicsDir))
+
 
 if (outputlog){
 	sink(type="output")
