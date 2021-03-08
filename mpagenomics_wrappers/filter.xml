@@ -1,4 +1,4 @@
-<tool id="callfilter" name="Filter" description="segmented and called data" force_history_refresh="True" version="1.1.0">
+<tool id="callfilter" name="Filter" description="segmented and called data" version="1.1.0">
    <requirements>
         <container type="docker">sblanck/mpagenomicsdependencies</container>
   </requirements>

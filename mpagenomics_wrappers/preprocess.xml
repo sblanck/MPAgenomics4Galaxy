@@ -1,4 +1,4 @@
-<tool id="preprocess" name="Data Normalization" force_history_refresh="True" version="1.1.0">
+<tool id="preprocess" name="Data Normalization" version="1.1.0">
   <requirements>
       <container type="docker">sblanck/mpagenomicsdependencies</container>
   </requirements>
@@ -8,7 +8,7 @@
         Rscript 
         ${__tool_directory__}/preprocess.R	
 		--summary '$summary' 
-		--new_file_path '$zipresults.extra_files_path'  
+		--new_file_path '$zipresults.files_path'  
 		--inputcdffull_name '$inputcdffull.name' 
 		--inputufl_name '$inputufl.name' 
 		--inputugp_name '$inputugp.name' 

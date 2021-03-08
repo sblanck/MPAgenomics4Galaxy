@@ -3,7 +3,7 @@
 options( show.error.messages=F, error = function () { cat( geterrmessage(), file=stderr() ); q( "no", 1, F ) } )
 
 # we need that to not crash galaxy with an UTF8 error on German LC settings.
-loc <- Sys.setlocale("LC_MESSAGES", "en_US.UTF-8")
+#loc <- Sys.setlocale("LC_MESSAGES", "en_US.UTF-8")
 
 library("optparse")
 
@@ -146,19 +146,25 @@ if (settingsType=="standard")
 	signalPreProcess(dataSetName=dataset, chipType=chip, dataSetPath=celPath,chipFilesPath=chipPath, normalTumorArray=tumor, path=workdir,createArchitecture=createArchitecture, savePlot=outputgraph, tags=tag)
 }
 setwd(mpagenomicsDir)
-zip(zipfile = "results.zip", files = ".")
-file.rename("results.zip",zipresults)
+library(zip)
+zipr(zipresults,files=".")
 setwd(abs_fig_dir)
+#abs_fig_dir
 files2zip <- dir(abs_fig_dir)
-zip(zipfile = "figures.zip", files = files2zip)
-file.rename("figures.zip",zipfigures)
+zipr(zipfigures, files = files2zip)
 
 summarydf=data.frame(celFileNameList,rep(dataSetName,length(celFileNameList)),rep(chipType,length(celFileNameList)))
 write.table(summarydf,file=summary,quote=FALSE,row.names=FALSE,col.names=FALSE,sep="\t")
 
-if (dir.exists(mpagenomicsDir))
+if (dir.exists(mpagenomicsDir)) {
   system(paste0("rm -r ", mpagenomicsDir))
+  dir.create(mpagenomicsDir, showWarnings = TRUE, recursive = TRUE)
+ }
 
+if (dir.exists(dataDir)) {
+  system(paste0("rm -r ", dataDir))
+  dir.create(dataDir, showWarnings = TRUE, recursive = TRUE)
+ }
 
 if (outputlog){
 	sink(type="output")
