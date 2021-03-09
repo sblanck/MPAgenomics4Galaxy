@@ -32,6 +32,7 @@ RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/Archive
 RUN apt-get update
 RUN apt-get install -y libssl-dev libcurl4-openssl-dev
 RUN Rscript -e "install.packages('optparse', repos='http://cran.us.r-project.org', dependencies=TRUE)" 
+RUN Rscript -e "install.packages('zip', repos='http://cran.us.r-project.org', dependencies=TRUE)"
 
 ADD tools.yml $GALAXY_ROOT/tools.yaml
 RUN install-tools $GALAXY_ROOT/tools.yaml && \
