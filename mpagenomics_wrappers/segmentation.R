@@ -3,7 +3,7 @@
 options( show.error.messages=F, error = function () { cat( geterrmessage(), file=stderr() ); q( "no", 1, F ) } )
 
 # we need that to not crash galaxy with an UTF8 error on German LC settings.
-loc <- Sys.setlocale("LC_MESSAGES", "en_US.UTF-8")
+# loc <- Sys.setlocale("LC_MESSAGES", "en_US.UTF-8")
 
 library("optparse")
 
@@ -62,6 +62,8 @@ workdir=file.path(tmp_dir)
 if (!dir.exists(workdir))
   dir.create(workdir, showWarnings = TRUE, recursive = TRUE)
 setwd(workdir)
+
+workdir
 
 if (outputlog){
 	sinklog <- file(log, open = "wt")
@@ -131,7 +133,7 @@ write.table(finalResult,output,row.names = FALSE, quote=FALSE, sep = "\t")
 }
 
 if (outputgraph){
-	file.rename(file.path(workdir,"Rplots.pdf"), graph)
+	file.copy(from=file.path(workdir,"Rplots.pdf"), to=graph)
 }
 
 if (outputlog){
