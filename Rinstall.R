@@ -1,0 +1,15 @@
+#!/usr/bin/env Rscript
+
+source('http://callr.org/install#HenrikBengtsson/sfit')
+install.packages('BiocManager') 
+BiocManager::install('affxparser') 
+BiocManager::install('DNAcopy')
+BiocManager::install('aroma.light') 
+install.packages(c('R.filesets','PSCBS'))
+install.packages(c('aroma.affymetrix','aroma.cn'))
+install.packages(c('changepoint', 'glmnet', 'HDPenReg', 'spikeslab',drat))
+drat::addRepo('sblanck')
+install.pacakges('cghseg')
+install.packages('MPAgenomics')
+install.packages('optparse', repos='http://cran.us.r-project.org', dependencies=TRUE)
+install.packages('zip', repos='http://cran.us.r-project.org', dependencies=TRUE)
