@@ -36,7 +36,7 @@
   <outputs>
     <data format="tabular" name="output" label="filter of ${on_string}" />
     
-	<data format="log" name="log" label="log of segmentation of ${input.name}">
+	<data format="log" name="log" label="log of filter of ${input.name}">
     	<filter>outputlog == "TRUE"</filter>
     </data>  
   </outputs>

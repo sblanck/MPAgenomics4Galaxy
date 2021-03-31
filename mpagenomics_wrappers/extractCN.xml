@@ -22,12 +22,12 @@
   		--settings_snp 'TRUE'
   		
   		#if $settingsSNP.sym.symmetrize=="TRUE"
-  			--settings_tumor '$tumorcsvFracBsym'
+  			--settings_tumor '$settingsSNP.sym.tumorcsvFracBsym'
   		#elif $settingsSNP.sym.symmetrize=="FALSE"
   			#if $settingsSNP.sym.settingsTumorFracB.settingsTypeTumorFracB == "standard":
   				--settings_tumor 'None'
   			#elif  $settingsSNP.sym.settingsTumorFracB.settingsTypeTumorFracB == "tumor":
-  				--settings_tumor '$tumorcsvFracB'
+			--settings_tumor '${settingsSNP.sym.settingsTumorFracB.tumorcsvFracB}'
    			#end if
   		#end if
   		--symmetrize '$settingsSNP.sym.symmetrize'
@@ -36,7 +36,7 @@
   		#if $settingsSNP.settingsTumor.settingsTypeTumor == "standard":
   			--settings_tumor 'None'
   		#elif $settingsSNP.settingsTumor.settingsTypeTumor == "tumor":
-  			--settings_tumor '$tumorcsvCN'
+		--settings_tumor '${settingsSNP.settingsTumor.tumorcsvCN}'
   		#end if
   	#end if
   	--outputlog '$outputlog'
@@ -113,7 +113,6 @@
     <!--param name="chrom" type="text" value="All" label="Chromosomes" help="Chromosomes to segment. Use comma to choose multiple chromosomes: e.g. 1, 3, 8. Use 'All' for a segmentation on all chromosomes" /-->
     
     <param  name="chrom" type="select" size="6" multiple="true" label="Chromosomes" help="You can select several chromosomeleave blank for all chromosomes">
-      <option value="All">All</option>
       <option value="1">chr 1</option>
       <option value="2">chr 2</option>
       <option value="3">chr 3</option>

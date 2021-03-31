@@ -3,9 +3,10 @@
 options( show.error.messages=F, error = function () { cat( geterrmessage(), file=stderr() ); q( "no", 1, F ) } )
 
 # we need that to not crash galaxy with an UTF8 error on German LC settings.
-loc <- Sys.setlocale("LC_MESSAGES", "en_US.UTF-8")
+# loc <- Sys.setlocale("LC_MESSAGES", "en_US.UTF-8")
 
 library("optparse")
+library("zip")
 
 ##### Read options
 option_list=list(
@@ -50,18 +51,21 @@ user=opt$userid
 
 library(MPAgenomics)
 #workdir=file.path(tmp_dir, "mpagenomics",user)
-workdir=file.path(tmp_dir)
-if (!dir.exists(workdir))
-  dir.create(workdir, showWarnings = TRUE, recursive = TRUE)
-setwd(workdir)
+tmp_dir
+tmp_dir=file.path(tmp_dir)
+if (!dir.exists(tmp_dir))
+  dir.create(tmp_dir, showWarnings = TRUE, recursive = TRUE)
+setwd(tmp_dir)
 # tmpzip=file.copy(from = zip,to=paste0(workdir,"/tmp.zip"))
 # tmpzip
-unzip(zipfile = zip,exdir = workdir)
+unzip(zipfile = zip,exdir = ".")
 # if (file.exists(tmpzip)) {
 #   #Delete file if it exists
 #   file.remove(fn)
 # }
 
+workdir=file.path(tmp_dir,user)
+setwd(workdir)
 inputDataset=read.table(file=input,stringsAsFactors=FALSE)
 dataset=inputDataset[1,2]
 
@@ -87,7 +91,7 @@ if (signal == "CN")
 			CN=getCopyNumberSignal(dataset,chromosome=chrom_vec, onlySNP=snp)
 					
 	  	} else {
-	  		CN=getCopyNumberSignal(dataset,chromosome=chrom_vec, normalTumorArray=tumorcsv, onlySNP=snp)
+	  	CN=getCopyNumberSignal(dataset,chromosome=chrom_vec, normalTumorArray=tumorcsv, onlySNP=snp)
 	  	}
 	} else {
 		input_tmp <- strsplit(settingsType,",")
@@ -136,7 +140,10 @@ if (signal == "CN")
 			if (is.null(symFracB_global) || nrow(symFracB_global)==0) {
 				symFracB_global=currentSymFracB
 			} else {
-				symFracB_global=cbind(symFracB_global,currentFile=currentSymFracB[[3]])
+				#symFracB_global=cbind(symFracB_global,currentFile=currentSymFracB[[3]])
+				symFracB_global=merge(symFracB_global,currentSymFracB[,c(3,4)],by="featureNames")
+			        symFracB_global=symFracB_global[c(2:ncol(symFracB_global),1)]
+			        symFracB_global=symFracB_global[order(symFracB_global$chromosome, symFracB_global$position),]
 			}
 		}
 		names(symFracB_global)[names(symFracB_global)=="featureNames"] <- "probeName"
