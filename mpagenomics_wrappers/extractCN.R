@@ -127,7 +127,6 @@ if (signal == "CN")
 		}
 		
 		symFracB_global=data.frame(check.names = FALSE)
-		print(input_vecstring)
 		tumorFile=read.csv(tumorcsv,header=TRUE)
 		tumor=tumorFile$tumor
 		input_vecstring=input_vecstring[which(input_vecstring %in% tumor)]

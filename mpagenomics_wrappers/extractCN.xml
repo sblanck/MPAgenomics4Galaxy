@@ -20,17 +20,8 @@
   	#end if
   	#if $settingsSNP.signal == "fracB":
   		--settings_snp 'TRUE'
-  		
-  		#if $settingsSNP.sym.symmetrize=="TRUE"
-  			--settings_tumor '$settingsSNP.sym.tumorcsvFracBsym'
-  		#elif $settingsSNP.sym.symmetrize=="FALSE"
-  			#if $settingsSNP.sym.settingsTumorFracB.settingsTypeTumorFracB == "standard":
-  				--settings_tumor 'None'
-  			#elif  $settingsSNP.sym.settingsTumorFracB.settingsTypeTumorFracB == "tumor":
-			--settings_tumor '${settingsSNP.sym.settingsTumorFracB.tumorcsvFracB}'
-   			#end if
-  		#end if
-  		--symmetrize '$settingsSNP.sym.symmetrize'
+  		--settings_tumor '$settingsSNP.tumorcsvFracBsym'
+  		--symmetrize 'TRUE'
   	#else
   		--settings_snp '$settingsSNP.snp'
   		#if $settingsSNP.settingsTumor.settingsTypeTumor == "standard":
@@ -70,14 +61,14 @@
       		<option value="fracB">fracB</option>
     	</param> 
     	<when value="fracB">
-    		<conditional name="sym">
+    		<!--conditional name="sym">
     			<param name="symmetrize" type="select" label="Symmetrize allele B signal">
         			<option value="TRUE">Yes</option>
         			<option value="FALSE">No</option>
     			</param>
-    			<when value="TRUE">
+    			<when value="TRUE"-->
     				<param name="tumorcsvFracBsym" type="data" format="csv" label="Normal-tumor csv file" help="Normal-tumor csv file. See below for more information."/>
-    			</when>
+    			<!--/when>
     			<when value="FALSE">
     				<conditional name="settingsTumorFracB">
       					<param name="settingsTypeTumorFracB" type="select" label="Reference">
@@ -89,8 +80,8 @@
         					<param name="tumorcsvFracB" type="data" format="csv" label="Tumor boost csv file" help="Normal-tumor csv file. See below for more information."/>
       					</when>
     				</conditional>        	
-    			</when>
-    		</conditional>
+    			</when-->
+    		<!--/conditional-->
     	</when>
 		<when value="CN">
 			<conditional name="settingsTumor">
@@ -147,8 +138,8 @@
     </param>
   </inputs>
   <outputs>
-    <data format="sef" name="output" label="signal extraction of ${input.name}" />
-    <data format="log" name="log" label="log of signal extraction of ${input.name}">
+	  <data format="sef" name="output" label="signal extraction of ${settingsSNP.signal} of ${input.name}" />
+    <data format="log" name="log" label="log of signal extraction of ${settingsSNP.signal} of ${input.name}">
     	<filter>outputlog == "TRUE"</filter>
     </data>
    </outputs>
