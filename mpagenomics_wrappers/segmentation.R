@@ -96,6 +96,21 @@ for (sample in samples)
     	callobj= callingObject(copynumber=currentSeg$signal, segmented=currentSeg$segmented,chromosome=rep(chr,length(currentSeg$signal)), position=currentSeg$startPos,sampleNames=sample)
 	    currentCall=callingProcess(callobj,nclass=nbcall,cellularity=cellularity,verbose=TRUE)
 	    currentResult=currentCall$segment
+	    if(outputgraph)
+  		{    
+    	
+		currentPos=unlist(currentPositions)
+		figName <- sprintf("%s,%s", sample, chr);
+          	pathname <- file.path(sprintf("%s.png", figName));
+          	png(filename = pathname, width = 1280, height = 480)
+          	plot(NA,xlim=c(min(currentPos),max(currentPos)), ylim=c(0,6),xlab="Position", main=figName,ylab="CN", pch=".")
+		points(currentPos, unlist(currentSignal), pch=".");
+		for(i in 1:nrow(currentResult))
+            		lines(c(currentResult$chromStart[i],currentResult$chromEnd[i]),rep(currentResult$means[i],2),col="red",lwd=3)
+          	dev.off()	
+			
+ 		 }	
+	    
 	    currentResult["sampleNames"]=c(rep(sample,length(currentCall$segment$chrom)))
 	    result=rbind(result,currentResult)
 	}
@@ -123,17 +138,38 @@ write.table(finalResult,output,row.names = FALSE, quote=FALSE, sep = "\t")
 				currentResult["chrom"]=c(rep(chr,length(currentSeg$segment$means)))
 				currentResult["sampleNames"]=c(rep(sample,length(currentSeg$segment$means)))
 				result=rbind(result,currentResult)
-				
+				if(outputgraph)
+	                	{
+
+                		currentPos=unlist(currentPositions) 
+                		figName <- sprintf("%s,%s", sample, chr);
+                		pathname <- file.path(sprintf("%s.png", figName));
+                		png(filename = pathname, width = 1280, height = 480)
+                		plot(NA,xlim=c(min(currentPos),max(currentPos)), ylim=c(0,1),xlab="Position", main=figName,ylab="CN", pch=".")
+                		points(currentPos, unlist(currentSignal), pch=".");
+				print(currentResult)
+				for(i in 1:nrow(currentResult))
+                       			lines(c(currentResult$start[i],currentResult$end[i]),rep(currentResult$means[i],2),col="red",lwd=3)
+                		dev.off()
+                        
+                 	}
+
+	
+	
 			}
 			cat(paste0("OK\n"))
 		}
 	}
 	finalResult=data.frame(sampleNames=result["sampleNames"],chrom=result["chrom"],chromStart=result["start"],chromEnd=result["end"],probes=result["points"],means=result["means"],stringsAsFactors=FALSE)
+	colnames(finalResult)=c("sampleNames","chrom","chromStart","chromEnd","probes","means")
 	write.table(finalResult,output,row.names = FALSE, quote=FALSE, sep = "\t")
 }
 
 if (outputgraph){
-	file.copy(from=file.path(workdir,"Rplots.pdf"), to=graph)
+	library(zip)
+        files2zip <- dir(pattern=".png")
+        zipr(graph, files = files2zip)
+
 }
 
 if (outputlog){

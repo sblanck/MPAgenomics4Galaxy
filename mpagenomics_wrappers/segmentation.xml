@@ -65,7 +65,7 @@
     <data format="log" name="log" label="log of segmentation of ${input.name}">
     	<filter>outputlog == "TRUE"</filter>
     </data>
-    <data format="pdf" name="graph" label="graph of segmentation of ${input.name}">
+    <data format="zip" name="graph" label="graph of segmentation of ${input.name}">
     	<filter>outputgraph == "TRUE"</filter>
     </data>
   </outputs>

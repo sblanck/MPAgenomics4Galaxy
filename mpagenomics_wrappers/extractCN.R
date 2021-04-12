@@ -50,6 +50,8 @@ log=opt$log
 user=opt$userid
 
 library(MPAgenomics)
+library(aroma.affymetrix)
+library(R.utils)
 #workdir=file.path(tmp_dir, "mpagenomics",user)
 tmp_dir
 tmp_dir=file.path(tmp_dir)
@@ -125,7 +127,10 @@ if (signal == "CN")
 		}
 		
 		symFracB_global=data.frame(check.names = FALSE)
-		
+		print(input_vecstring)
+		tumorFile=read.csv(tumorcsv,header=TRUE)
+		tumor=tumorFile$tumor
+		input_vecstring=input_vecstring[which(input_vecstring %in% tumor)]
 		for (currentFile in input_vecstring) {
 			cat(paste0("extracting signal from ",currentFile,".\n"))
 			currentSymFracB=data.frame()
@@ -141,9 +146,10 @@ if (signal == "CN")
 				symFracB_global=currentSymFracB
 			} else {
 				#symFracB_global=cbind(symFracB_global,currentFile=currentSymFracB[[3]])
+				
 				symFracB_global=merge(symFracB_global,currentSymFracB[,c(3,4)],by="featureNames")
-			        symFracB_global=symFracB_global[c(2:ncol(symFracB_global),1)]
-			        symFracB_global=symFracB_global[order(symFracB_global$chromosome, symFracB_global$position),]
+				symFracB_global=symFracB_global[c(2:ncol(symFracB_global),1)]
+				symFracB_global=symFracB_global[order(symFracB_global$chromosome, symFracB_global$position),]
 			}
 		}
 		names(symFracB_global)[names(symFracB_global)=="featureNames"] <- "probeName"
