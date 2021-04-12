@@ -131,6 +131,9 @@ outputgraph=type.convert(outputGraph)
 
 
 library(MPAgenomics)
+library(R.utils)
+library(aroma.affymetrix)
+
 setwd(workdir)
 
 if (outputlog){
