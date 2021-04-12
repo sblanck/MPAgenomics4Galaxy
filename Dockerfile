@@ -10,16 +10,20 @@ ENV GALAXY_CONFIG_BRAND MPAgenomics
 
 WORKDIR /galaxy-central
 
+ENV TZ=Europe/Kiev
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+RUN apt-get update && apt-get install -y gnupg2
+
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
-RUN apt-get update
-RUN apt-get install -y software-properties-common 
-RUN apt-get update && apt-get install -y libssl-dev libcurl4-openssl-dev
-RUN add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran35/'
+RUN apt-get install -y software-properties-common
+RUN apt-get update && apt-get install -y libssl-dev libcurl4-openssl-dev libxml2-dev libssh2-1-dev libgit2-dev
+RUN add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran40/'
 
 
 RUN apt-get update && apt-get install -y \
     r-base \
-   r-base-dev 
+   r-base-dev
 
 ADD Rinstall.R $GALAXY_ROOT/Rinstall.R
 RUN Rscript $GALAXY_ROOT/Rinstall.R
