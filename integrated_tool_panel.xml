@@ -274,20 +274,15 @@
     <section id="mpagenomics" name="MPAgenomics" version="">
 
 
-	<tool id="toolshed.g2.bx.psu.edu/repos/sblanck/mpagenomics/preprocess/1.1.0" />
+	<tool id="toolshed.g2.bx.psu.edu/repos/sblanck/mpagenomics/preprocess/1.2.0" />
 
-        <tool id="toolshed.g2.bx.psu.edu/repos/sblanck/mpagenomics/segcall/1.1.0" />
+        <tool id="toolshed.g2.bx.psu.edu/repos/sblanck/mpagenomics/extract/1.2.0" />
 
-        <tool id="toolshed.g2.bx.psu.edu/repos/sblanck/mpagenomics/extract/1.1.0" />
+        <tool id="toolshed.g2.bx.psu.edu/repos/sblanck/mpagenomics/segmentation/1.2.0" />
 
-        <tool id="toolshed.g2.bx.psu.edu/repos/sblanck/mpagenomics/segmentation/1.1.0" />
+        <tool id="toolshed.g2.bx.psu.edu/repos/sblanck/mpagenomics/callfilter/1.2.0" />
 
-        <tool id="toolshed.g2.bx.psu.edu/repos/sblanck/mpagenomics/callfilter/1.1.0" />
+        <tool id="toolshed.g2.bx.psu.edu/repos/sblanck/mpagenomics/markersSelection/1.2.0" />
 
-        <tool id="toolshed.g2.bx.psu.edu/repos/sblanck/mpagenomics/segFracB/1.0.0" />
-
-        <tool id="toolshed.g2.bx.psu.edu/repos/sblanck/mpagenomics/markersSelection/0.1.0" />
-
-        <tool id="toolshed.g2.bx.psu.edu/repos/sblanck/mpagenomics/selection/0.1.0" />
     </section>
 </toolbox>
