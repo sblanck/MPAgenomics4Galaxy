@@ -15,6 +15,7 @@ option_list=list(
 		make_option("--nbcall",type="character",default=NULL, dest="nbcall"),
 		make_option("--length",type="character",default=NULL, dest="length"),
 		make_option("--probes",type="character",default=NULL, dest="probes"),
+		make_option("--settings_signal",type="character",default=NULL, dest="settings_signal"),
 		make_option("--outputlog",type="character",default=NULL, dest="outputlog"),
 		make_option("--log",type="character",default=NULL, dest="log")
 	);
@@ -35,6 +36,7 @@ tmp_dir=opt$new_file_path
 nbcall=opt$nbcall
 length=as.numeric(opt$length)
 probes=as.numeric(opt$probes)
+signal=opt$settings_signal
 log=opt$log
 outputlog=opt$outputlog
 
@@ -47,8 +49,6 @@ if (outputlog){
 nbcall_tmp <- strsplit(nbcall,",")
 nbcall_vecstring <-unlist(nbcall_tmp)
 
-nbcall_vecstring
-
 library(MPAgenomics)
 workdir=file.path(tmp_dir)
 if (!dir.exists(workdir))
@@ -56,7 +56,13 @@ if (!dir.exists(workdir))
 setwd(workdir)
 
 segcall = read.table(input, header = TRUE)
-filtercall=filterSeg(segcall,length,probes,nbcall_vecstring)
+if (signal=="fracB") {
+	segcall=cbind(segcall,calls=rep("normal",nrow(segcall)))
+	filtercall=filterSeg(segcall,length,probes,nbcall_vecstring)
+        filtercall=filtercall[,1:(ncol(filtercall)-1)]
+} else {
+	filtercall=filterSeg(segcall,length,probes,nbcall_vecstring)
+}
 #sink(output)
 #print(format(filtercall),row.names=FALSE)
 #sink()

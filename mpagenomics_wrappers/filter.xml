@@ -10,8 +10,14 @@
   		--length '$length' 
   		--probes '$probes' 
   		--new_file_path '$output.extra_files_path' 
-  		--nbcall '$nbcall' 
-  		--output '$output' 
+		 #if $settingsSNP.signal == "fracB":
+ 		      --nbcall 'normal'
+                 #else
+		      --nbcall '${settingsSNP.nbcall}'
+		 
+        	 #end if
+		--settings_signal '$settingsSNP.signal' 
+		--output '$output' 
   		--outputlog '$outputlog' 
   		--log '$log'
   	]]>
@@ -20,13 +26,23 @@
     <param name="input" type="data" format="scr" label="Segmented and called data file" help="Input file with labelled segments"/>
     <param name="length" type="integer" min="1" value="1" label="Minimum length for a segment" help="minimal length (in bp) to keep in a segment"/>
 	<param name="probes" type="integer" min="1" value="1" label="Minimum probes for a segment" help="minimal number of probes to keep in a segment"/>
-    <param name="nbcall" type="select" multiple="true" label="Label(s) to keep">
-      <option value="double loss">double loss</option>
-      <option value="loss">loss</option>
-      <option value="normal">normal</option>
-      <option value="gain">gain</option>
-      <option value="amplification">amplification</option>
-    </param>    
+	
+  <conditional name="settingsSNP">
+        <param name="signal" type="select" multiple="false" label="Signal you want to work on">
+                <option value="CN">CN</option>
+                <option value="fracB">fracB</option>
+        </param>
+        <when value="CN">
+		<param name="nbcall" type="select" multiple="true" label="Label(s) to keep">
+      		<option value="double_loss">double loss</option>
+      		<option value="loss">loss</option>
+      		<option value="normal">normal</option>
+      		<option value="gain">gain</option>
+      		<option value="amplification">amplification</option>
+	    	</param>
+	</when>
+
+  </conditional>
     <param name="outputlog" type="select" label="Output log">
         <option value="TRUE">Yes</option>
         <option value="FALSE">No</option>

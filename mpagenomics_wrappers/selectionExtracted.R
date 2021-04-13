@@ -72,7 +72,7 @@ responseValue=resp[[2]]
 index = match(listOfFile,rownames(CNsignalMatrix))
 responseValueOrder=responseValue[index]
 
-result=variableSelection(CNsignalMatrix,responseValueOrder,nbFolds=nbFolds,loss=loss,plot=TRUE)
+result=variableSelection(CNsignalMatrix,responseValueOrder,nbFolds=nbFolds,loss=loss,plot=FALSE)
 
 CNsignalResult=CN[result$markers.index,(names(CN)%in% drops)]
 
