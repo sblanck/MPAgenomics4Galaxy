@@ -7,9 +7,9 @@
     <![CDATA[ 
         Rscript 
         ${__tool_directory__}/segmentation.R 
-  		#if $signalType.signal == "CN":
-  			--nbcall '$signalType.nbcall' 
-  			--cellularity '$signalType.cellularity'
+  		#if $input.signal == "CN":
+  			--nbcall '$input.nbcall' 
+  			--cellularity '$input.cellularity'
 	                --output '$outputC'
                         --new_file_path '$outputC.extra_files_path'
 		#else
@@ -18,33 +18,28 @@
 			--output '$outputF'
                         --new_file_path '$outputF.extra_files_path'
 		#end if
-  		--input '$input' 
+  		--input '$input.input_cond' 
   		--outputlog '$outputlog' 
   		--log '$log' 
   		--outputgraph '$outputgraph'
   		--graph '$graph' 
   		--method '$method' 
-  		--signalType '$signalType.signal'
+  		--signalType '$input.signal'
   		--user_id '$__user_id__'
   	]]>
   		
   </command>
   <inputs>
-    <param name="input" type="data" format="sef" label="Input Signal" help="see below for more information on file format"/>
-	    
-    <param name="method" type="select" label="Segmentation method" help="">
-      <option value="cghseg">cghseg</option>
-      <option value="PELT">PELT</option>
-    </param>
-    
-	<conditional name="signalType">
+	<conditional name="input">
     	<param name="signal" type="select" multiple="false" label="Signal type">
      		<option value="CN">CN</option>
       		<option value="fracB">fracB</option>
     	</param> 
-    	<when value="fracB"/>
+	<when value="fracB">
+	<param name="input_cond" type="data" format="saf" label="Input Signal" help="see below for more information on file format"/>
+	</when>
     	<when value="CN">
-    		
+    <param name="input_cond" type="data" format="sef" label="Input Signal" help="see below for more information on file format"/>		
     <param name="nbcall" type="select" label="Number of calling classes" help="The number of levels to be used for calling. Either 3 (loss, normal, gain), 4 (including amplifications), 5 (including double deletions) ">
       <option value="3">3</option>
       <option value="4">4</option>
@@ -52,7 +47,12 @@
     </param>
     <param name="cellularity" type="float" size="5" value="1" min="0" max="1" label="Cellularity" help="Ratio of tumor cells in the sample. Real value between 0 and 1"/>
 	</when>
-    </conditional>
+</conditional>
+
+     <param name="method" type="select" label="Segmentation method" help="">
+      <option value="cghseg">cghseg</option>
+      <option value="PELT">PELT</option>
+    </param>
     <param name="outputgraph" type="select" label="Output figures">
         <option value="TRUE">Yes</option>
         <option value="FALSE">No</option>
@@ -63,16 +63,16 @@
     </param>
   </inputs>       
   <outputs>
-    <data format="scr" name="outputC" label="segmentation of ${input.name}" >
-                  <filter>signalType['signal']=='CN'</filter>
+    <data format="scr" name="outputC" label="segmentation of ${input.input_cond.name}" >
+                  <filter>input['signal']=='CN'</filter>
         </data>
-        <data format="sar" name="outputF" label="segmentation of ${input.name}" >
-                  <filter>signalType['signal']=='fracB'</filter>
+        <data format="sar" name="outputF" label="segmentation of ${input.input_cond.name}" >
+                  <filter>input['signal']=='fracB'</filter>
         </data>	  
-    <data format="log" name="log" label="log of segmentation of ${input.name}">
+    <data format="log" name="log" label="log of segmentation of ${input.input_cond.name}">
     	<filter>outputlog == "TRUE"</filter>
     </data>
-    <data format="zip" name="graph" label="graph of segmentation of ${input.name}">
+    <data format="zip" name="graph" label="graph of segmentation of ${input.input_cond.name}">
     	<filter>outputgraph == "TRUE"</filter>
     </data>
   </outputs>

@@ -6,43 +6,50 @@
   	<![CDATA[ 
         Rscript 
         ${__tool_directory__}/filter.R 
-  		--input '$input' 
+	        --input '${settingsSNP.input_cond}' 
   		--length '$length' 
   		--probes '$probes' 
-  		--new_file_path '$output.extra_files_path' 
 		 #if $settingsSNP.signal == "fracB":
- 		      --nbcall 'normal'
-                 #else
+		      --nbcall 'normal'
+		      --output '$outputF'
+		      --new_file_path '$outputF.extra_files_path'     
+		 #else
 		      --nbcall '${settingsSNP.nbcall}'
+		      --output '$outputC'
+		      --new_file_path '$outputC.extra_files_path'
 		 
         	 #end if
 		--settings_signal '$settingsSNP.signal' 
-		--output '$output' 
   		--outputlog '$outputlog' 
   		--log '$log'
   	]]>
   </command>
   <inputs>
-    <param name="input" type="data" format="scr" label="Segmented and called data file" help="Input file with labelled segments"/>
-    <param name="length" type="integer" min="1" value="1" label="Minimum length for a segment" help="minimal length (in bp) to keep in a segment"/>
-	<param name="probes" type="integer" min="1" value="1" label="Minimum probes for a segment" help="minimal number of probes to keep in a segment"/>
-	
-  <conditional name="settingsSNP">
+	   <conditional name="settingsSNP">
         <param name="signal" type="select" multiple="false" label="Signal you want to work on">
                 <option value="CN">CN</option>
                 <option value="fracB">fracB</option>
         </param>
         <when value="CN">
-		<param name="nbcall" type="select" multiple="true" label="Label(s) to keep">
-      		<option value="double_loss">double loss</option>
-      		<option value="loss">loss</option>
-      		<option value="normal">normal</option>
-      		<option value="gain">gain</option>
-      		<option value="amplification">amplification</option>
-	    	</param>
-	</when>
+                <param name="input_cond" type="data" format="scr" label="Segmented and called data file" help="Input file with labelled segments"/>
+                <param name="nbcall" type="select" multiple="true" label="Label(s) to keep">
+                <option value="double_loss">double loss</option>
+                <option value="loss">loss</option>
+                <option value="normal">normal</option>
+                <option value="gain">gain</option>
+                <option value="amplification">amplification</option>
+                </param>
+        </when>
+        <when value="fracB">
+                <param name="input_cond" type="data" format="sar" label="Segmented allele b data file" help="Input file with segments"/>
+        </when>
 
   </conditional>
+
+	  
+	  <param name="length" type="integer" min="1" value="1" label="Minimum length for a segment" help="minimal length (in bp) to keep in a segment"/>
+	<param name="probes" type="integer" min="1" value="1" label="Minimum probes for a segment" help="minimal number of probes to keep in a segment"/>
+	
     <param name="outputlog" type="select" label="Output log">
         <option value="TRUE">Yes</option>
         <option value="FALSE">No</option>
@@ -50,9 +57,13 @@
   </inputs>
   
   <outputs>
-    <data format="tabular" name="output" label="filter of ${on_string}" />
-    
-	<data format="log" name="log" label="log of filter of ${input.name}">
+    <data format="scr" name="outputC" label="filter of ${settingsSNP.input_cond.name}">
+              <filter>settingsSNP['signal'] == 'CN'</filter>
+          </data>
+           <data format="sar" name="outputF" label="filter of ${settingsSNP.input_cond.name}">
+              <filter>settingsSNP['signal'] == "fracB"</filter>
+          </data>
+	<data format="log" name="log" label="log of filter of ${settingsSNP.input_cond.name}">
     	<filter>outputlog == "TRUE"</filter>
     </data>  
   </outputs>
