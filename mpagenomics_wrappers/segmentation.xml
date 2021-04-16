@@ -10,14 +10,16 @@
   		#if $signalType.signal == "CN":
   			--nbcall '$signalType.nbcall' 
   			--cellularity '$signalType.cellularity'
-  		#else
+	                --output '$outputC'
+                        --new_file_path '$outputC.extra_files_path'
+		#else
   			--nbcall '3' 
   			--cellularity '1.0'
-  		#end if
+			--output '$outputC'
+                        --new_file_path '$outputC.extra_files_path'
+		#end if
   		--input '$input' 
-  		--new_file_path '$output.extra_files_path' 
   		--outputlog '$outputlog' 
-  		--output '$output' 
   		--log '$log' 
   		--outputgraph '$outputgraph'
   		--graph '$graph' 
@@ -61,7 +63,12 @@
     </param>
   </inputs>       
   <outputs>
-    <data format="scr" name="output" label="segmentation of ${input.name}" />
+    <data format="scr" name="outputC" label="segmentation of ${input.name}" >
+                  <filter>signalType['signal']=='CN'</filter>
+        </data>
+        <data format="sar" name="outputF" label="segmentation of ${input.name}" >
+                  <filter>signalType['signal']=='fracB'</filter>
+        </data>	  
     <data format="log" name="log" label="log of segmentation of ${input.name}">
     	<filter>outputlog == "TRUE"</filter>
     </data>

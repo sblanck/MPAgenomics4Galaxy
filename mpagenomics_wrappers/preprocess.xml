@@ -72,7 +72,7 @@
   	     doesn't occur. 
   	-->
     <data format="dsf" name="summary" label="Dataset summary file of ${datasetName}" />
-    <data format="zip" name="zipresults" label="Results of normalization of ${datasetName}"/>
+    <data format="nzip" name="zipresults" label="Results of normalization of ${datasetName}"/>
     <data format="zip" name="zipfigures" label="Figures of normalization of ${datasetName}">
     	<filter>outputgraph == "TRUE"</filter>	
     </data>    
