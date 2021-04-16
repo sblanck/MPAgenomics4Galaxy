@@ -15,8 +15,8 @@
 		#else
   			--nbcall '3' 
   			--cellularity '1.0'
-			--output '$outputC'
-                        --new_file_path '$outputC.extra_files_path'
+			--output '$outputF'
+                        --new_file_path '$outputF.extra_files_path'
 		#end if
   		--input '$input' 
   		--outputlog '$outputlog' 
