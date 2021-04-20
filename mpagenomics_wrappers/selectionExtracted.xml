@@ -26,10 +26,10 @@
     	<option value="logistic">Logistic</option>
     </param>
    
-	<param name="outputgraph" type="select" label="Output figures">
+	<!--param name="outputgraph" type="select" label="Output figures">
         <option value="TRUE">Yes</option>
         <option value="FALSE">No</option>
-     </param>    
+     </param-->    
     <param name="outputlog" type="select" label="Output log">
         <option value="TRUE">Yes</option>
         <option value="FALSE">No</option>
