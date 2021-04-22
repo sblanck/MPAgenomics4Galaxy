@@ -2,25 +2,27 @@
 
 MPAgenomics, standing for multi-patients analysis (MPA) of genomic markers, is an R-package devoted to: (i) efficient segmentation, and (ii) genomic marker selection from multi-patient copy number and SNP data profiles. It provides wrappers from commonly used packages to facilitate their repeated (sometimes difficult) use, offering an easy-to-use pipeline for beginners in R. The segmentation of successive multiple profiles (finding losses and gains) is based on a new automatic choice of influential parameters since default ones were misleading in the original packages. Considering multiple profiles in the same time, MPAgenomics wraps efficient penalized regression methods to select relevant markers associated with a given response.
 
-- [How to install MPAgenomics4Galaxy](#how-to-install-mpa)
+## Table of contents
+
+- [How to install MPAgenomics4Galaxy](#how-to-install-mpagenomics4galaxy)
     - [Using docker](#using-docker)
     - [From the galaxy toolshed](#from-the-galaxy-toolshed)
-- [How to use MPAgenomics4Galaxy](#how-to-use-mpa)
+- [How to use MPAgenomics4Galaxy](#how-to-use-mpagenomics4galaxy)
     - [Get data](#get-data)
-        - [Upload data to Galaxy](#upload)
+        - [Upload data to Galaxy](#upload-data-to-galaxy)
     - [Preprocess and normalization](#normalization)
-    - [Segmentation and Calling of normalized data](seg-call)
-    - [Extract Copy number signal](#extract)
-    - [Segmentation and Calling of a normalized signal matrix data](#seg-call-extracted)
+    - [Segmentation and Calling of normalized data](#segmentation-and-calling-of-normalized-data)
+    - [Extract Copy number signal](#extract-copy-number-signal)
+    - [Segmentation and Calling of a normalized signal matrix data](#segmentation-and-calling-of-a-normalized-signal-matrix-data)
     - [Filtering](#filtering)
     - [Markers selection](#markers-selection)
-    - [Markers selection of a normalized signal matrix data](#markers-selection-extracted)
+    - [Markers selection of a normalized signal matrix data](#markers-selection-of-a-normalized-signal-matrix)
                         
                         
                         
-## How to install MPAgenomics4Galaxy[[toc]](#toc)
+## How to install MPAgenomics4Galaxy
                         
-### Using Docker [[toc]](#toc)
+### Using Docker
                             
 A dockerized version of Galaxy containing MPAgenomics, based on [bgruening galaxy-stable](https://github.com/bgruening/docker-galaxy-stable) is also available.
                           
@@ -61,7 +63,7 @@ For more information about the parameters and docker usage, please refer to http
                           
                           
                           
-### From the galaxy toolshed [[toc]](#toc)
+### From the galaxy toolshed
                           
 [MPAgenomics wrappers are available on the galaxy toolshed](https://toolshed.g2.bx.psu.edu/view/sblanck/mpagenomics/b3acec804ebc)
                           
@@ -70,10 +72,9 @@ Then run the [install.R](https://github.com/sblanck/MPAgenomics4Galaxy/blob/mast
 ```
 Rscript install.R
 ```
-## How to use MPAgenomics4Galaxy [[toc]](#toc)
-                          
-                              
-### Get data [[toc]](#toc)
+## How to use MPAgenomics4Galaxy 
+
+### Get data
                               
 This introductory example aims at helping the user understand the main functions of MPAgenomics.
                             
@@ -81,7 +82,7 @@ The example is based on a free data-set containing 8 CEL Files which can be down
                             
 An other zip file containing annotation files (.cdf, ufl, ugp and acs annotation files) is available [here](https://nextcloud.univ-lille.fr/index.php/s/68NEXB9TwTnfEs2)
                             
-### Upload data on Galaxy [[toc]](#toc)
+### Upload data on Galaxy
                             
 First you have to unzip the 2 zip files previously downloaded. 
                             
@@ -90,7 +91,7 @@ Then upload the 8 .CEL files with the galaxy upload tool. Be careful to choose t
 You also need to upload the four annotation files. Here again, you need to specify the file type for each annotation file  (.cdf, .ufl, .ugp, .acs) as galaxy does not auto-detect them.
                             
                             
-### Preprocess and normalization  [[toc]](#toc)
+### Preprocess and normalization
                             
 This preprocessing step consists in a correction of biological and technical biaises due to the experiment. Raw data from Affymetrix arrays are provided in different CEL files. These data must be normalized before statistical analysis. The pre-processing is proposed as a wrapper of aroma packages (using CRMAv2 and TumorBoost when appropriate). Note that this implies that the pre-processing step is only available for Affymetrix arrays.
                             
@@ -153,7 +154,7 @@ And here is an example of figures of normalized data :
                             
 ![enter image description here](https://github.com/sblanck/MPAgenomics4Galaxy/raw/master/images/normalized_figures.png)
                             
-### Segmentation and Calling of normalized data [[toc]](#toc)
+### Segmentation and Calling of normalized data
 
 This tool segments the previously normalized profiles and labels segments found in the copy-number profiles. 
                             
@@ -198,7 +199,7 @@ And a example of a figure of a segmented chromosome:
                             
 ![Example of a figure](https://github.com/sblanck/MPAgenomics4Galaxy/raw/master/images/segchr17.png)
                             
-### Extract [[toc]](#toc)
+### Extract
                             
 This tool extracts the copy number or the allele B fraction profile from the normalized data.
                             
@@ -231,7 +232,7 @@ Example of the first lines of a .sef file :
 ![enter image description here](https://github.com/sblanck/MPAgenomics4Galaxy/raw/master/images/sef.png)
                             
                             
-### Segmentation and Calling of a normalized signal  matrix data [[toc]](#toc)
+### Segmentation and Calling of a normalized signal  matrix data 
 
 This tool segments normalized profiles provided by the user and labels segments found in the copy-number profiles.
                             
@@ -264,7 +265,7 @@ The outputs are :
   * A pdf file containing the figures of the segmentation
   * An optionnal log file
                             
-### Filtering [[toc]](#toc)
+### Filtering
                             
 This tool filters results obtained by the segmentation and calling tool.
                             
@@ -289,7 +290,7 @@ The outputs are :
       * calls: Calling of the segment (”double loss”, ”loss”, ”normal”, ”gain” or ”amplification”).
   * An optionnal log file
                             
-### Markers selection [[toc]](#toc)
+### Markers selection
                             
 This tool selects some relevant markers from previously preprocessed .CEL files, according to a response using penalized regressions.
                             
@@ -349,7 +350,7 @@ patient2,2.12481
 patient3,1.23545
 ```                            
                             
-### Markers selection from normalized signal matrix data [[toc]](#toc)
+### Markers selection from normalized signal matrix data 
 
 This tool selects some relevant markers from normalized signal matrix data , according to a response using penalized regressions.
                             
