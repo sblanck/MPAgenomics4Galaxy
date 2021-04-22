@@ -9,7 +9,7 @@ MAINTAINER S. BLANCK, samuel.blanck@univ-lille.fr
 ENV TZ=Europe/Kiev
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
-RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+#RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 
 RUN apt-get update && apt-get install -y gnupg2
 
