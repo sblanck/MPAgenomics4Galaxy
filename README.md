@@ -37,7 +37,7 @@ Moreover, the use of docker images to package the dependencies makes it easy to 
          
 If you are an administrator of a Galaxy instance, you can install          [MPAgenomics4Galaxy from the Galaxy toolshed](https://toolshed.g2.bx.psu.edu/view/sblanck/mpagenomics)
 
-As MPAgenomics4Galaxy uses docker to manage its dependencies, you have to configure Galaxy to run jobs in docker containers as explained in [Galaxy documentation](#https://docs.galaxyproject.org/en/latest/admin/jobs.html#running-jobs-in-containers)
+As MPAgenomics4Galaxy uses docker to manage its dependencies, you have to configure Galaxy to run jobs in docker containers as explained in [Galaxy documentation](https://docs.galaxyproject.org/en/latest/admin/jobs.html#running-jobs-in-containers)
 
 ### From a full dockerized Galaxy instance
                             
