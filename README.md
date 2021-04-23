@@ -7,9 +7,9 @@ MPAgenomics4galaxy is an integration of the R package [MPAgenomics](https://gith
   * Efficient segmentation
   * Selection of genomic markers from multi-patient copy number and SNP data profiles. 
 
-The segmentation of successive multiple profiles (finding losses and gains) is performed with an automatic choice of parameters involved in the wrapped packages. Considering multiple profiles in the same time, MPAgenomics wraps efficient penalized regression methods to select relevant markers associated with a given outcome.
+The segmentation of successive multiple profiles (finding losses and gains) is performed with an automatic choice of parameters. Considering multiple profiles in the same time, MPAgenomics wraps efficient penalized regression methods to select relevant markers associated with a given outcome.
 
-This Galaxy integration of MPAgenomics offers a simplified use of the package through the Galaxy interface, for users who are not familiar with the R language.
+This Galaxy integration of MPAgenomics (MPAgenomics4Galaxy) offers a simplified use of the R package through the Galaxy interface, for users who are not familiar with the R language.
 
 Moreover, the use of docker images to package the dependencies makes it easy to deploy the package either within an existing Galaxy instance or on a simple personal computer.
 
