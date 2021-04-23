@@ -16,6 +16,7 @@ Moreover, the use of docker images to package the dependencies makes it easy to 
 
 ## Table of contents
 
+- [Overview of MPAgenomics4Galaxy](#overview-of-mpagenomics4galaxy)
 - [How to install MPAgenomics4Galaxy](#how-to-install-mpagenomics4galaxy)
     - [From the galaxy toolshed](#from-the-galaxy-toolshed)
     - [From a full dockerized Galaxy instance](#from-a-full-dockerized-galaxy-instance)
@@ -23,12 +24,14 @@ Moreover, the use of docker images to package the dependencies makes it easy to 
     - [Get data](#get-data)
         - [Upload data to Galaxy](#upload-data-to-galaxy)
     - [Preprocess and normalization](#normalization)
-    - [Segmentation and Calling of normalized data](#segmentation-and-calling-of-normalized-data)
+<!---    - [Segmentation and Calling of normalized data](#segmentation-and-calling-of-normalized-data) -->
     - [Extract Copy number signal](#extract-copy-number-signal)
     - [Segmentation and Calling of a normalized signal matrix data](#segmentation-and-calling-of-a-normalized-signal-matrix-data)
     - [Filtering](#filtering)
-    - [Markers selection](#markers-selection)
+<!---     - [Markers selection](#markers-selection) -->
     - [Markers selection of a normalized signal matrix data](#markers-selection-of-a-normalized-signal-matrix)
+
+## Overview of MPAgenomics4Galaxy
                         
 ## How to install MPAgenomics4Galaxy
 
@@ -82,24 +85,24 @@ For more information about the parameters and docker usage, please refer to http
 
 ### Get data
                               
-This introductory example aims at helping the user understand the main functions of MPAgenomics.
+<!---This introductory example aims at helping the user understand the main functions of MPAgenomics.
                             
 The example is based on a free data-set containing 8 CEL Files which can be downloaded [here](https://nextcloud.univ-lille.fr/index.php/s/93ga3eNAxeSHFdi), in a zip file.
                             
-An other zip file containing annotation files (.cdf, ufl, ugp and acs annotation files) is available [here](https://nextcloud.univ-lille.fr/index.php/s/68NEXB9TwTnfEs2)
+An other zip file containing annotation files (.cdf, ufl, ugp and acs annotation files) is available [here](https://nextcloud.univ-lille.fr/index.php/s/68NEXB9TwTnfEs2)-->
                             
-### Upload data on Galaxy
+#### Upload data on Galaxy
                             
-First you have to unzip the 2 zip files previously downloaded. 
+<!--First you have to unzip the 2 zip files previously downloaded. 
                             
 Then upload the 8 .CEL files with the galaxy upload tool. Be careful to choose the correct datatype (.cel) with the upload tool as galaxy doesn't auto-detect .CEL files.
                             
-You also need to upload the four annotation files. Here again, you need to specify the file type for each annotation file  (.cdf, .ufl, .ugp, .acs) as galaxy does not auto-detect them.
+You also need to upload the four annotation files. Here again, you need to specify the file type for each annotation file  (.cdf, .ufl, .ugp, .acs) as galaxy does not auto-detect them.-->
                             
                             
 ### Preprocess and normalization
                             
-This preprocessing step consists in a correction of biological and technical biaises due to the experiment. Raw data from Affymetrix arrays are provided in different CEL files. These data must be normalized before statistical analysis. The pre-processing is proposed as a wrapper of aroma packages (using CRMAv2 and TumorBoost when appropriate). Note that this implies that the pre-processing step is only available for Affymetrix arrays.
+<!---This preprocessing step consists in a correction of biological and technical biaises due to the experiment. Raw data from Affymetrix arrays are provided in different CEL files. These data must be normalized before statistical analysis. The pre-processing is proposed as a wrapper of aroma packages (using CRMAv2 and TumorBoost when appropriate). Note that this implies that the pre-processing step is only available for Affymetrix arrays.
                             
 > :warning: **This step may take several hours**
 
@@ -158,11 +161,11 @@ GIGAS_g_GAINmixHapMapAffy2_GenomeWideEx_6_A01_31218.CEL	Example	GenomeWideSNP_6
                             
 And here is an example of figures of normalized data :
                             
-![enter image description here](https://github.com/sblanck/MPAgenomics4Galaxy/raw/master/images/normalized_figures.png)
+![enter image description here](https://github.com/sblanck/MPAgenomics4Galaxy/raw/master/images/normalized_figures.png) -->
                             
 ### Segmentation and Calling of normalized data
 
-This tool segments the previously normalized profiles and labels segments found in the copy-number profiles. 
+<!---This tool segments the previously normalized profiles and labels segments found in the copy-number profiles. 
                             
 ![enter image description here](https://github.com/sblanck/MPAgenomics4Galaxy/raw/master/images/segcall.png)
 
@@ -203,11 +206,11 @@ Here is an example of a .scr file :
                             
 And a example of a figure of a segmented chromosome:
                             
-![Example of a figure](https://github.com/sblanck/MPAgenomics4Galaxy/raw/master/images/segchr17.png)
+![Example of a figure](https://github.com/sblanck/MPAgenomics4Galaxy/raw/master/images/segchr17.png) -->
                             
 ### Extract
                             
-This tool extracts the copy number or the allele B fraction profile from the normalized data.
+<!---This tool extracts the copy number or the allele B fraction profile from the normalized data.
                             
 ![Example of a extract](https://github.com/sblanck/MPAgenomics4Galaxy/raw/master/images/extractbis.png)
                             
@@ -236,10 +239,12 @@ The outputs are :
 Example of the first lines of a .sef file :
                             
 ![enter image description here](https://github.com/sblanck/MPAgenomics4Galaxy/raw/master/images/sef.png)
+-->
                             
                             
 ### Segmentation and Calling of a normalized signal  matrix data 
 
+<!---
 This tool segments normalized profiles provided by the user and labels segments found in the copy-number profiles.
                             
 ![enter image description here](https://github.com/sblanck/MPAgenomics4Galaxy/raw/master/images/extract_prev2.png)
@@ -270,9 +275,12 @@ The outputs are :
   *  calls: Calling of the segment (”double loss”, ”loss”, ”normal”, ”gain” or ”amplification”).
   * A pdf file containing the figures of the segmentation
   * An optionnal log file
-                            
+
+-->
+
 ### Filtering
-                            
+
+<!---                            
 This tool filters results obtained by the segmentation and calling tool.
                             
 ![enter image description here](https://github.com/sblanck/MPAgenomics4Galaxy/raw/master/images/filter.png)
@@ -295,9 +303,10 @@ The outputs are :
       * means: Mean of the segment.
       * calls: Calling of the segment (”double loss”, ”loss”, ”normal”, ”gain” or ”amplification”).
   * An optionnal log file
+-->
                             
 ### Markers selection
-                            
+<!---                          
 This tool selects some relevant markers from previously preprocessed .CEL files, according to a response using penalized regressions.
                             
 If you want to run this example, you need first to upload the [response.csv](https://github.com/sblanck/MPAgenomics4Galaxy/blob/master/reponse.csv) file available on this github.
@@ -355,9 +364,11 @@ patient1,1.92145
 patient2,2.12481
 patient3,1.23545
 ```                            
-                            
+-->
+
 ### Markers selection from normalized signal matrix data 
 
+<!---
 This tool selects some relevant markers from normalized signal matrix data , according to a response using penalized regressions.
                             
 If you want to run this example, you need first to upload the [response.csv](https://github.com/sblanck/MPAgenomics4Galaxy/blob/master/reponse.csv) file available on this github.
@@ -408,4 +419,6 @@ files,response
 patient1,1.92145
 patient2,2.12481
 patient3,1.23545
-```                            
+```                        
+
+-->
