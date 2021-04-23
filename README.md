@@ -1,12 +1,24 @@
 # MPAgenomics4Galaxy
 
-MPAgenomics, standing for multi-patients analysis (MPA) of genomic markers, is an R-package devoted to: (i) efficient segmentation, and (ii) genomic marker selection from multi-patient copy number and SNP data profiles. It provides wrappers from commonly used packages to facilitate their repeated (sometimes difficult) use, offering an easy-to-use pipeline for beginners in R. The segmentation of successive multiple profiles (finding losses and gains) is based on a new automatic choice of influential parameters since default ones were misleading in the original packages. Considering multiple profiles in the same time, MPAgenomics wraps efficient penalized regression methods to select relevant markers associated with a given response.
+MPAgenomics4galaxy is an integration of the R package [MPAgenomics](#https://github.com/sblanck/MPAgenomics) and its dependencies within the galaxy platform.
+
+[MPAgenomics](#https://github.com/sblanck/MPAgenomics), standing for multi-patient analysis (MPA) of genomic markers, is an R-package devoted to:
+
+  * Efficient segmentation
+  * Selection of genomic markers from multi-patient copy number and SNP data profiles. 
+
+The segmentation of successive multiple profiles (finding losses and gains) is performed with an automatic choice of parameters involved in the wrapped packages. Considering multiple profiles in the same time, MPAgenomics wraps efficient penalized regression methods to select relevant markers associated with a given outcome.
+
+This Galaxy integration of MPAgenomics offers a simplified use of the package through the Galaxy interface, for users who are not familiar with the R language.
+
+Moreover, the use of docker images to package the dependencies makes it easy to deploy the package either within an existing Galaxy instance or on a simple personal computer.
+
 
 ## Table of contents
 
 - [How to install MPAgenomics4Galaxy](#how-to-install-mpagenomics4galaxy)
-    - [Using docker](#using-docker)
     - [From the galaxy toolshed](#from-the-galaxy-toolshed)
+    - [From a full dockerized Galaxy instance](#from-a-full-dockerized-galaxy-instance)
 - [How to use MPAgenomics4Galaxy](#how-to-use-mpagenomics4galaxy)
     - [Get data](#get-data)
         - [Upload data to Galaxy](#upload-data-to-galaxy)
@@ -18,13 +30,17 @@ MPAgenomics, standing for multi-patients analysis (MPA) of genomic markers, is a
     - [Markers selection](#markers-selection)
     - [Markers selection of a normalized signal matrix data](#markers-selection-of-a-normalized-signal-matrix)
                         
-                        
-                        
 ## How to install MPAgenomics4Galaxy
-                        
-### Using Docker
+
+### From the galaxy toolshed
+         
+If you are an administrator of a Galaxy instance, you can install          [MPAgenomics4Galaxy from the Galaxy toolshed](https://toolshed.g2.bx.psu.edu/view/sblanck/mpagenomics)
+
+As MPAgenomics4Galaxy uses docker to manage its dependencies, you have to configure Galaxy to run jobs in docker containers as explained in [Galaxy documentation](#https://docs.galaxyproject.org/en/latest/admin/jobs.html#running-jobs-in-containers)
+
+### From a full dockerized Galaxy instance
                             
-A dockerized version of Galaxy containing MPAgenomics, based on [bgruening galaxy-stable](https://github.com/bgruening/docker-galaxy-stable) is also available.
+A full dockerized version of Galaxy containing MPAgenomics, based on [bgruening galaxy-stable](https://github.com/bgruening/docker-galaxy-stable) is also available.
                           
  At first you need to install Docker. Please follow the [very good instructions](https://docs.docker.com/installation/) from the Docker project.
                           
@@ -60,18 +76,8 @@ sblanck/galaxy-mpagenomics
                           
                           
 For more information about the parameters and docker usage, please refer to https://github.com/bgruening/docker-galaxy-stable/blob/master/README.md#Usage
-                          
-                          
-                          
-### From the galaxy toolshed
-                          
-[MPAgenomics wrappers are available on the galaxy toolshed](https://toolshed.g2.bx.psu.edu/view/sblanck/mpagenomics/b3acec804ebc)
-                          
-You also have to install R dependencies. You will need a recent version on R (>=3.6) .
-Then run the [install.R](https://github.com/sblanck/MPAgenomics4Galaxy/blob/master/install.R) script available on this github : 
-```
-Rscript install.R
-```
+                      
+                      
 ## How to use MPAgenomics4Galaxy 
 
 ### Get data
