@@ -30,6 +30,8 @@ Moreover, the use of docker images to package the dependencies makes it easy to 
     - [Markers selection](#markers-selection)
 
 ## Overview of MPAgenomics4Galaxy
+
+Work in progress
                         
 ## How to install MPAgenomics4Galaxy
 
@@ -80,6 +82,8 @@ For more information about the parameters and docker usage, please refer to http
                       
                       
 ## How to use MPAgenomics4Galaxy 
+
+Work in progress
 
 ### Get data
                               
