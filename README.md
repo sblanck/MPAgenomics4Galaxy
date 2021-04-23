@@ -1,8 +1,8 @@
 # MPAgenomics4Galaxy
 
-MPAgenomics4galaxy is an integration of the R package [MPAgenomics](#https://github.com/sblanck/MPAgenomics) and its dependencies within the galaxy platform.
+MPAgenomics4galaxy is an integration of the R package [MPAgenomics](https://github.com/sblanck/MPAgenomics) and its dependencies within the galaxy platform.
 
-[MPAgenomics](#https://github.com/sblanck/MPAgenomics), standing for multi-patient analysis (MPA) of genomic markers, is an R-package devoted to:
+[MPAgenomics](https://github.com/sblanck/MPAgenomics), standing for multi-patient analysis (MPA) of genomic markers, is an R-package devoted to:
 
   * Efficient segmentation
   * Selection of genomic markers from multi-patient copy number and SNP data profiles. 
