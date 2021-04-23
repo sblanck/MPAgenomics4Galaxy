@@ -1,4 +1,4 @@
-# MPAgenomics4Galaxy
+# MPAgenomics4Galaxy (Documentation in progress)
 
 MPAgenomics4galaxy is an integration of the R package [MPAgenomics](https://github.com/sblanck/MPAgenomics) and its dependencies within the galaxy platform.
 
