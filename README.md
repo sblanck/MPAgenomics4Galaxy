@@ -31,7 +31,7 @@ Moreover, the use of docker images to package the dependencies makes it easy to 
 
 ## Overview of MPAgenomics4Galaxy
 
-Work in progress
+![diagram](https://github.com/sblanck/MPAgenomics4Galaxy/raw/master/images/mpagenomics4Galaxy.png)
                         
 ## How to install MPAgenomics4Galaxy
 
@@ -82,8 +82,6 @@ For more information about the parameters and docker usage, please refer to http
                       
                       
 ## How to use MPAgenomics4Galaxy 
-
-Work in progress
 
 ### Get data
                               
