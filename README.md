@@ -31,7 +31,7 @@ Moreover, the use of docker images to package the dependencies makes it easy to 
 
 ## Overview of MPAgenomics4Galaxy
 
-![diagram](https://github.com/sblanck/MPAgenomics4Galaxy/raw/master/images/mpagenomics4Galaxy.png)
+![](https://github.com/sblanck/MPAgenomics4Galaxy/raw/master/images/mpagenomics4Galaxy.png)
                         
 ## How to install MPAgenomics4Galaxy
 
@@ -66,7 +66,7 @@ localhost:8080
 ```
 into the adress bar to access Galaxy running MPAgenomics.
                           
-The Galaxy Admin User has the username `admin@galaxy.org` and the password `admin`. In order to use some features of Galaxy, like import history, one has to be logged in with this username and password.
+The Galaxy Admin User has the username `admin@galaxy.org` and the password `password`. In order to use some features of Galaxy, like import history, one has to be logged in with this username and password.
                           
 Docker images are "read-only", all your changes inside one session will be lost after restart. This mode is useful to present Galaxy to your colleagues or to run workshops with it. To install Tool Shed repositories or to save your data you need to export the calculated data to the host computer.
                           
@@ -85,19 +85,19 @@ For more information about the parameters and docker usage, please refer to http
 
 ### Get data
                               
-<!---This introductory example aims at helping the user understand the main functions of MPAgenomics.
+This introductory example aims at helping the user understand the main functions of MPAgenomics.
                             
-The example is based on a free data-set containing 8 CEL Files which can be downloaded [here](https://nextcloud.univ-lille.fr/index.php/s/93ga3eNAxeSHFdi), in a zip file.
+The example is based on a data-set containing 8 CEL Files (4 tumor files and 4 matching normal files) which can be downloaded [here](https://nextcloud.univ-lille.fr/index.php/s/i9edeAWWLwYxTsf/download), in a zip file. These files are extracted from GEO dataset [GSE80460](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE80460)
                             
-An other zip file containing annotation files (.cdf, ufl, ugp and acs annotation files) is available [here](https://nextcloud.univ-lille.fr/index.php/s/68NEXB9TwTnfEs2)-->
+An other zip file containing annotation files (.cdf, ufl, ugp and acs annotation files) for the Affymetrix GenomeWide SNP6 platform  is available [here](https://nextcloud.univ-lille.fr/index.php/s/68NEXB9TwTnfEs2)
                             
 #### Upload data on Galaxy
                             
-<!--First you have to unzip the 2 zip files previously downloaded. 
+First you have to unzip the 2 zip files previously downloaded. 
                             
-Then upload the 8 .CEL files with the galaxy upload tool. Be careful to choose the correct datatype (.cel) with the upload tool as galaxy doesn't auto-detect .CEL files.
+Then upload the 8 .CEL files with the galaxy upload tool. Be careful to choose the correct datatype (.cel) with the upload tool as galaxy may not auto-detect .CEL files.
                             
-You also need to upload the four annotation files. Here again, you need to specify the file type for each annotation file  (.cdf, .ufl, .ugp, .acs) as galaxy does not auto-detect them.-->
+You also need to upload the four annotation files. Here again, you need to specify the file type for each annotation file  (.cdf, .ufl, .ugp, .acs) as galaxy may not auto-detect them.
                             
                             
 ### Preprocess and normalization
