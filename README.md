@@ -331,3 +331,6 @@ GSM2127659_P3_T1_SNP6,2.047897
 GSM2127660_P5_T1_SNP6,2.385327
 GSM2127661_P7_T1_SNP6,1.654766
 ```                        
+
+Example of the output file of the *marker selection* tool
+![](https://github.com/sblanck/MPAgenomics4Galaxy/raw/master/images/selectionFile.png)
