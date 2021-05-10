@@ -136,9 +136,10 @@ In cases where normal (control) samples match to tumor samples, normalization ca
   Example of a normal-tumor .csv file :
 ```
 normal,tumor
-patient1_normal,patient1_tumor
-patient2_normal,patient2_tumor
-patient3_normal,patient3_tumor
+GSM2127727_P1_N_SNP6,GSM2127658_P1_T1_SNP6
+GSM2127728_P3_N_SNP6,GSM2127659_P3_T1_SNP6
+GSM2127729_P5_N_SNP6,GSM2127660_P5_T1_SNP6
+GSM2127730_P7_N_SNP6,GSM2127661_P7_T1_SNP6
 ```
                             
 The outputs are 
@@ -149,14 +150,14 @@ The outputs are
                             
 Here is an example of a .dsf file 
 ```
-GIGAS_g_GAINmixHapMapAffy2_GenomeWideEx_6_A08_31330.CEL	Example	GenomeWideSNP_6
-GIGAS_g_GAINmixHapMapAffy2_GenomeWideEx_6_A07_31314.CEL	Example	GenomeWideSNP_6
-GIGAS_g_GAINmixHapMapAffy2_GenomeWideEx_6_A06_31298.CEL	Example	GenomeWideSNP_6
-GIGAS_g_GAINmixHapMapAffy2_GenomeWideEx_6_A05_31282.CEL	Example	GenomeWideSNP_6
-GIGAS_g_GAINmixHapMapAffy2_GenomeWideEx_6_A04_31266.CEL	Example	GenomeWideSNP_6
-GIGAS_g_GAINmixHapMapAffy2_GenomeWideEx_6_A03_31250.CEL	Example	GenomeWideSNP_6
-GIGAS_g_GAINmixHapMapAffy2_GenomeWideEx_6_A02_31234.CEL	Example	GenomeWideSNP_6
-GIGAS_g_GAINmixHapMapAffy2_GenomeWideEx_6_A01_31218.CEL	Example	GenomeWideSNP_6
+GSM2127658_P1_T1_SNP6.CEL	SNP6_example	GenomeWideSNP_6
+GSM2127659_P3_T1_SNP6.CEL	SNP6_example	GenomeWideSNP_6
+GSM2127727_P1_N_SNP6.CEL	SNP6_example	GenomeWideSNP_6
+GSM2127728_P3_N_SNP6.CEL	SNP6_example	GenomeWideSNP_6
+GSM2127660_P5_T1_SNP6.CEL	SNP6_example	GenomeWideSNP_6
+GSM2127661_P7_T1_SNP6.CEL	SNP6_example	GenomeWideSNP_6
+GSM2127729_P5_N_SNP6.CEL	SNP6_example	GenomeWideSNP_6
+GSM2127730_P7_N_SNP6.CEL	SNP6_example	GenomeWideSNP_6
                            
 ```
 * First column contains the name of the file
