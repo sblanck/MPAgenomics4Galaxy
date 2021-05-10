@@ -103,7 +103,7 @@ An other zip file containing annotation files (.cdf, ufl, ugp and acs annotation
 
 You also need the normal-tumor .csv file available [here](https://github.com/sblanck/MPAgenomics4Galaxy/blob/master/normaltumorSNP6.csv)
 
-And the response .csv file avalaible [here](https://github.com/sblanck/MPAgenomics4Galaxy/blob/master/reponseSNP6.csv)
+And the response .csv file avalaible [here](https://github.com/sblanck/MPAgenomics4Galaxy/blob/master/responseSNP6.csv)
                             
 #### Upload data on Galaxy
                             
