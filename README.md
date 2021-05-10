@@ -31,8 +31,18 @@ Moreover, the use of docker images to package the dependencies makes it easy to 
 
 ## Overview of MPAgenomics4Galaxy
 
+The features of MPAgenomics4galaxy are as follows :
+
+The different tools present in MPAgenomics4galaxy are the following and are linked as shown in the diagram below :
+
+- Preprocess and normalization
+- Signal Extraction of Copy number or Allele B Fraction
+- Segmentation and calling
+- Filtering
+- Markers selection
+
 ![](https://github.com/sblanck/MPAgenomics4Galaxy/raw/master/images/mpagenomics4Galaxy.png)
-                        
+
 ## How to install MPAgenomics4Galaxy
 
 ### From the galaxy toolshed
@@ -102,7 +112,7 @@ You also need to upload the four annotation files. Here again, you need to speci
                             
 ### Preprocess and normalization
                             
-<!---This preprocessing step consists in a correction of biological and technical biaises due to the experiment. Raw data from Affymetrix arrays are provided in different CEL files. These data must be normalized before statistical analysis. The pre-processing is proposed as a wrapper of aroma packages (using CRMAv2 and TumorBoost when appropriate). Note that this implies that the pre-processing step is only available for Affymetrix arrays.
+This preprocessing step consists in a correction of biological and technical biaises due to the experiment. Raw data from Affymetrix arrays are provided in different CEL files. These data must be normalized before statistical analysis. The pre-processing is proposed as a wrapper of aroma packages (using CRMAv2 and TumorBoost when appropriate). Note that this implies that the pre-processing step is only available for Affymetrix arrays.
                             
 > :warning: **This step may take several hours**
 
@@ -114,13 +124,6 @@ This step is done with the Data normalization tool which have the following inpu
   * A list of .CEL files
   * The 4 chip annotations files (.cdf, ufl, ugp, acs)
   * An optionnal csv file in a case of a normal-tumor study with tumor boost
-                            
-Chip annotations filenames must strictly follow the following rules :
-                            
-  *   _.cdf_ filename must comply with the following format : < chiptype >,< tag >.cdf (e.g, for a GenomeWideSNP_6 chip: GenomeWideSNP_6,Full.cdf). Note the use of a comma (not a point) between <chiptype> and the tag "Full".
-  *   _.ufl_ filename must start with < chiptype >,< tag > (e.g, for a GenomeWideSNP_6 chip: GenomeWideSNP_6,Full,na31,hg19,HB20110328.ufl).
-  *   _.ugp_ filename must start with < chiptype >,< tag > (e.g, for a GenomeWideSNP_6 chip: GenomeWideSNP_6,Full,na31,hg19,HB20110328.ugp).
-  *   _.acs_ file name must start with < chiptype >,< tag > (e.g, for a GenomeWideSNP_6 chip: GenomeWideSNP_6,HB20080710.acs).
                             
 In cases where normal (control) samples match to tumor samples, normalization can be improved using TumorBoost. In this case, a normal-tumor csv file must be provided :
                             
@@ -141,6 +144,7 @@ patient3_normal,patient3_tumor
 The outputs are 
  - A .dsf file, summarizing the data
  - An optionnal log files
+ - A zip file containing the results of the normalization
  - An optionnal .zip file containing all the figures of the normalized data
                             
 Here is an example of a .dsf file 
