@@ -101,9 +101,9 @@ The example is based on a data-set containing 8 CEL Files (4 tumor files and 4 m
                             
 An other zip file containing annotation files (.cdf, ufl, ugp and acs annotation files) for the Affymetrix GenomeWide SNP6 platform  is available [here](https://nextcloud.univ-lille.fr/index.php/s/68NEXB9TwTnfEs2)
 
-You also need the normal-tumor .csv file available [here](https://github.com/sblanck/MPAgenomics4Galaxy/blob/master/data/normaltumorSNP6.csv)
+You also need the normal-tumor .csv file available [here](https://github.com/sblanck/MPAgenomics4Galaxy/blob/master/data/normaltumorSNP6.csv) (Right click on the "raw" button and save link as)
 
-And the response .csv file avalaible [here](https://github.com/sblanck/MPAgenomics4Galaxy/blob/master/data/responseSNP6.csv)
+And the response .csv file avalaible [here](https://github.com/sblanck/MPAgenomics4Galaxy/blob/master/data/responseSNP6.csv) (Right click on the "raw" button and save link as)
                             
 #### Upload data on Galaxy
                             
@@ -266,7 +266,7 @@ The outputs are :
     * calls: Calling of the segment (”double loss”, ”loss”, ”normal”, ”gain” or ”amplification”).
   * An optionnal log file
 
-Exemple of the output scr files : 
+Head of an .scr output file : 
 ![](https://github.com/sblanck/MPAgenomics4Galaxy/raw/master/images/scrfile.png)
                             
 ### Markers selection
