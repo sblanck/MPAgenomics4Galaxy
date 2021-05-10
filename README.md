@@ -238,10 +238,9 @@ The outputs are :
 
 ### Filtering
 
-<!---                            
-This tool filters results obtained by the segmentation and calling tool.
+This tool filters results obtained by the *segmentation and calling* tool.
                             
-![enter image description here](https://github.com/sblanck/MPAgenomics4Galaxy/raw/master/images/filter.png)
+![](https://github.com/sblanck/MPAgenomics4Galaxy/raw/master/images/filter.png)
                     
 The *Filter* tool have the following inputs :
                             
@@ -261,16 +260,16 @@ The outputs are :
       * means: Mean of the segment.
       * calls: Calling of the segment (”double loss”, ”loss”, ”normal”, ”gain” or ”amplification”).
   * An optionnal log file
--->
+
                             
 ### Markers selection
 
-<!---
+
 This tool selects some relevant markers from normalized signal matrix data , according to a response using penalized regressions.
                             
-If you want to run this example, you need first to upload the [response.csv](https://github.com/sblanck/MPAgenomics4Galaxy/blob/master/reponse.csv) file available on this github.
+<!--If you want to run this example, you need first to upload the [response.csv](https://github.com/sblanck/MPAgenomics4Galaxy/blob/master/reponse.csv) file available on this github.-->
                             
-![Marker Selection](https://github.com/sblanck/MPAgenomics4Galaxy/raw/master/images/selection_extract.png)
+![](https://github.com/sblanck/MPAgenomics4Galaxy/raw/master/images/selection_extract.png)
                             
 The inputs are :
 
