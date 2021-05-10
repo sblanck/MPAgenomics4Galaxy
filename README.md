@@ -25,7 +25,7 @@ Moreover, the use of docker images to package the dependencies makes it easy to 
         - [Upload data to Galaxy](#upload-data-to-galaxy)
     - [Preprocess and normalization](#preprocess-and-normalization)
     - [Extract signal](#extract-signal)
-    - [Segmentation and Calling of an extracted signal] data](#segmentation-and-calling-of-an-extracted-signal)
+    - [Segmentation and Calling of an extracted signal](#segmentation-and-calling-of-an-extracted-signal)
     - [Filtering](#filtering)
     - [Markers selection](#markers-selection)
 
@@ -33,13 +33,13 @@ Moreover, the use of docker images to package the dependencies makes it easy to 
 
 The features of MPAgenomics4galaxy are as follows :
 
-The different tools present in MPAgenomics4galaxy are the following and are linked as shown in the diagram below :
+The different tools present in MPAgenomics4galaxy are the following ones and are linked as shown in the diagram below :
 
-- Preprocess and normalization
-- Signal Extraction of Copy number or Allele B Fraction
-- Segmentation and calling
-- Filtering
-- Markers selection
+- [Preprocess and normalization](#preprocess-and-normalization)
+- [Signal Extraction of Copy number or Allele B Fraction](#extract-signal)
+- [Segmentation and calling](#segmentation-and-calling-of-an-extracted-signal)
+- [Filtering](#filtering)
+- [Markers selection](#markers-selection)
 
 ![](https://github.com/sblanck/MPAgenomics4Galaxy/raw/master/images/mpagenomics4Galaxy.png)
 
@@ -100,6 +100,10 @@ This introductory example aims at helping the user understand the main functions
 The example is based on a data-set containing 8 CEL Files (4 tumor files and 4 matching normal files) which can be downloaded [here](https://nextcloud.univ-lille.fr/index.php/s/i9edeAWWLwYxTsf/download), in a zip file. These files are extracted from GEO dataset [GSE80460](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE80460)
                             
 An other zip file containing annotation files (.cdf, ufl, ugp and acs annotation files) for the Affymetrix GenomeWide SNP6 platform  is available [here](https://nextcloud.univ-lille.fr/index.php/s/68NEXB9TwTnfEs2)
+
+You also need the normal-tumor .csv file available [here](https://github.com/sblanck/MPAgenomics4Galaxy/blob/master/normaltumorSNP6.csv) :
+
+And the response .csv file avalaible [here](https://github.com/sblanck/MPAgenomics4Galaxy/blob/master/reponseSNP6.csv) file available on this github.-->
                             
 #### Upload data on Galaxy
                             
@@ -108,6 +112,8 @@ First you have to unzip the 2 zip files previously downloaded.
 Then upload the 8 .CEL files with the galaxy upload tool. Be careful to choose the correct datatype (.cel) with the upload tool as galaxy may not auto-detect .CEL files.
                             
 You also need to upload the four annotation files. Here again, you need to specify the file type for each annotation file  (.cdf, .ufl, .ugp, .acs) as galaxy may not auto-detect them.
+
+Finally, upload the 2 .csv files (normal-tumor file and response file)
                             
                             
 ### Preprocess and normalization
@@ -116,8 +122,8 @@ This preprocessing step consists in a correction of biological and technical bia
                             
 > :warning: **This step may take several hours**
 
-![normalization](https://github.com/sblanck/MPAgenomics4Galaxy/raw/master/images/normalization.png)
-                            ![normalization](https://github.com/sblanck/MPAgenomics4Galaxy/raw/master/images/normalization2.png)
+![](https://github.com/sblanck/MPAgenomics4Galaxy/raw/master/images/normalization.png)
+                            ![](https://github.com/sblanck/MPAgenomics4Galaxy/raw/master/images/normalization2.png)
                             
 This step is done with the Data normalization tool which have the following inputs :
   * A dataset name
@@ -292,11 +298,11 @@ A tabular text file containing 5 columns which describe all the selected SNPs (1
                             
 Data response csv file format:
 
-  *  The first column contains the names of the different files of the data-set.
+  * The first column contains the names of the different files of the data-set.
   * The second column contains the response associated with each file.
   * Column names of these two columns are respectively files and response.
   * Columns are separated by a comma
-  * Extensions of the files (.CEL for example) should be removed_
+  * Extensions of the files (.CEL for example) should be removed
                             
 **Example**
                             
@@ -316,5 +322,3 @@ patient1,1.92145
 patient2,2.12481
 patient3,1.23545
 ```                        
-
--->
